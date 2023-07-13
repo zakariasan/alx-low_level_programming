@@ -1,2 +1,2 @@
 #!/bin/bash
-export NAMEO=`echo $CFILE | cut -d. -f1`| gcc -c $CFILE -o $NAMEO.o
+gcc -c $CFILE -o `echo $CFILE | cut -d. -f1`
