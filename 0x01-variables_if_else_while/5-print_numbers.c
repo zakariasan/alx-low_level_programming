@@ -4,7 +4,7 @@
 
 /**
  * main - Entry Point
- * Description: print Numbers 
+ * Description: print Numbers
  * Return: main return 0 all safe
  */
 int main(void)
