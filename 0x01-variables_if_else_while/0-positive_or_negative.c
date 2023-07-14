@@ -7,7 +7,6 @@
 * comments in C source code.
 * Description: get nature of n nbr positive or negative null 
 */
-
 int main(void)
 {
 	int n;
@@ -17,7 +16,8 @@ int main(void)
 	if (n >= 0)
 	{
 		(n == 0) ? printf("%d is zero\n", n) : printf("%d is positive\n", n);
-	}else
+	}
+	else
 		printf("%d is negative\n", n);
 	return (0);
 }
