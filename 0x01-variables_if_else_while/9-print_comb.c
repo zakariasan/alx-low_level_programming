@@ -13,10 +13,11 @@ int main(void)
 
 	c = '0';
 	while (c <= '9')
+	{
 		putchar(c++);
-	c = 'a';
-	while (c <= 'f')
-		putchar(c++);
+		putchar(',');
+		putchar(' ');
+	}
 	putchar('\n');
 	return (0);
 }
