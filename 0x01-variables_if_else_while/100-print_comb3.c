@@ -9,12 +9,12 @@
  */
 int main(void)
 {
-        int c;
-        int j;
-
-        c = '0';
+	int c;
+	int j;
+	
+	c = '0';
 	while (c <= '9')
-        {
+	{
 		j =c + 1;
 		while(j <= '9')
 		{
@@ -27,7 +27,7 @@ int main(void)
 			}
 		}
 		c++;
-        }
-        putchar('\n');
-        return (0);
-} 
+	}
+	putchar('\n');
+	return (0);
+}
