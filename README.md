@@ -8,10 +8,10 @@ Alx Low_level_programming
 	<b><i>Development repo for ALx low level programming project</i></b><br>
 	For further information about alx africa and its projects, please refer to <a href="https://www.alxafrica.com/"><b>ALx africa</b></a>.
 
-<img src="https://img.shields.io/badge/Alx-0052CC?style=for-the-badge">
 </p>
 
 
+<img align="center" src="https://img.shields.io/badge/Alx-0052CC?style=for-the-badge">
 
 <h3 align="center">
 	<a href="#%EF%B8%8F-about">About</a>
