@@ -4,14 +4,14 @@
 /* betty style doc for function main goes there */
 int main(void)
 {
-	unsigned int n;
+	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	if (n >= 0)
 	{
-		(n == 0) ? printf("%u is zero\n", n) : printf("%u is positive", n);
+		(n == 0) ? printf("%d is zero\n", n) : printf("%d is positive", n);
 	}else
-		printf("%u is negative\n");
+		printf("%d is negative\n", n);
 	return (0);
 }
