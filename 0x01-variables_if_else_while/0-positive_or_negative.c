@@ -4,7 +4,6 @@
 
 /**
  * main - Entry
- * 
  * Description: output if n nb positive or negative
  * Return: main return 0 all safe
  */
