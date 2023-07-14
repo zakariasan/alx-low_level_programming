@@ -3,10 +3,11 @@
 #include <stdio.h>
 
 /**
-* This is the preferred style for multi-line
-* comments in C source code.
-* Description: get nature of n nbr positive or negative null 
-*/
+ * main - Entry
+ * 
+ * Description: output if n nb positive or negative
+ * Return: main return 0 all safe
+ */
 int main(void)
 {
 	int n;
