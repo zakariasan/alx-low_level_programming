@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-/* betty style doc for function main goes there */
+
+/**
+* This is the preferred style for multi-line
+* comments in C source code.
+* Description: get nature of n nbr positive or negative null 
+*/
+
 int main(void)
 {
 	int n;
