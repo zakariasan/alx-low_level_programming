@@ -1,4 +1,4 @@
-##0x01. C - Variables, if, else, while
+## 0x01. C - Variables, if, else, while
 
 The repo "0x01-variables_if_else_while" is a collection of code examples and exercises that cover the fundamental concepts of variables, if-else statements, and while loops in programming. It provides hands-on practice and demonstrates how to declare and use variables, make decisions with if-else statements, and create loops using the while loop construct. The repository aims to help beginners understand and gain proficiency in these essential programming concepts.
 
