@@ -11,7 +11,6 @@ Alx Low_level_programming
 </p>
 
 
-<img align="center" src="https://img.shields.io/badge/Alx-0052CC?style=for-the-badge">
 
 <h3 align="center">
 	<a href="#%EF%B8%8F-about">About</a>
@@ -22,6 +21,9 @@ Alx Low_level_programming
 
 
 <p align="center">
+
+<img align="center" src="https://img.shields.io/badge/Alx-0052CC?style=for-the-badge">
+
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--MF5Cp2yD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/nyj855ggghu7rcc6ib7c.gif">
 </p>
 
@@ -36,4 +38,5 @@ Alx Low_level_programming
 ---
 
 * [0x00. C - Hello, World](./0x00-hello_world) : hello, World!Explore the step-by-step journey of transforming source code into an executable program as you delve into the fascinating world of compilers.
+* [0x01-variables_if_else_while ](./0x01-variables_if_else_while) : focuses on programming concepts such as variables, if-else statements, and while loops.
  
