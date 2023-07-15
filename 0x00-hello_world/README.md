@@ -1,4 +1,4 @@
-#0x00. C - Hello, World
+## 0x00. C - Hello, World
 
 hello in the world of c lang in this project your going to see basic hello world and steps of preprocessing with: 
 
