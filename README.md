@@ -8,6 +8,7 @@ Alx Low_level_programming
 	<b><i>Development repo for ALx low level programming project</i></b><br>
 	For further information about alx africa and its projects, please refer to <a href="https://www.alxafrica.com/"><b>ALx africa</b></a>.
 
+<img align="center" src="https://img.shields.io/badge/Alx-0052CC?style=for-the-badge">
 </p>
 
 
@@ -22,7 +23,6 @@ Alx Low_level_programming
 
 <p align="center">
 
-<img align="center" src="https://img.shields.io/badge/Alx-0052CC?style=for-the-badge">
 
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--MF5Cp2yD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/nyj855ggghu7rcc6ib7c.gif">
 </p>
