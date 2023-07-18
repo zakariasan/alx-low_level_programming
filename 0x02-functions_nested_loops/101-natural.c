@@ -37,7 +37,7 @@ int main(void)
 
 	i = 0;
 	sum = 0;
-	while (i < 1024 && sum < 1024)
+	while (i < 1024)
 	{
 		if (i % 5 == 0 || i % 3 == 0)
 			sum += i;
