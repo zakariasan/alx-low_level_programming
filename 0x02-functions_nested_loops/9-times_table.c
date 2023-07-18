@@ -11,7 +11,7 @@ void times_table(void)
 	int tmp;
 
 	row = -1;
-	while (++row < 9)
+	while (++row <= 9)
 	{
 		col = -1;
 		tmp = 0;
@@ -24,7 +24,7 @@ void times_table(void)
 			}
 			else
 				_putchar(tmp + '0');
-			if (col != 8)
+			if (col != 9)
 			{
 				_putchar(',');
 				_putchar(' ');
