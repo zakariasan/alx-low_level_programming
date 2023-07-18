@@ -32,7 +32,7 @@ void _putnbr(int nbr)
  */
 void print_to_98(int n)
 {
-	while (n != 99)
+	while (n != 98)
 	{
 		_putnbr(n);
 		if(n != 98)
@@ -42,5 +42,6 @@ void print_to_98(int n)
 		}
 		(n > 98) ? n-- : n++;
 	}
+	_putnbr(98);
 	_putchar('\n');
 }
