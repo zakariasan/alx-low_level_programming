@@ -18,11 +18,11 @@ void times_table(void)
 		while (++col <= 9)
 		{
 			if (tmp >= 10)
-				_putchar((tmp % 10) + '0');
+				_putchar((tmp / 10) + '0');
 			else
 				_putchar(' ');
 			_putchar((tmp % 10) + 48);
-			if (col != 9)
+			if(col != 9)
 			{
 				_putchar(',');
 				_putchar(' ');
