@@ -6,7 +6,7 @@
  *
  * Return: On success 1.Upper Case Return 0
  */
-void _islower(char c)
+int _islower(char c)
 {
 	if(c >= 'a' && c <= 'z')
 		return (1);
