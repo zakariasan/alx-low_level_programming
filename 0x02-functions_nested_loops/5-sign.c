@@ -2,7 +2,7 @@
 
 /**
  * print_sign - prints the sign of a number.
- * @c: int value
+ * @n: int value
  *
  * Description: prints + or - or 0 the sign of a number.
  * Return: On success 1.Upper Case Return 0
