@@ -16,12 +16,7 @@ int main(void)
 	n1 = 1;
 	n2 = 2;
 	i = 0;
-	_putnbr(n1);
-	_putchar(',');
-	_putchar(' ');
-	_putnbr(n2);
-	_putchar(',');
-	_putchar(' ');
+	printf("%d, %d, ",n1,n2);
 	while (i < 50)
 	{
 		fibo = n1 + n2;
