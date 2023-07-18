@@ -1,0 +1,31 @@
+#include "main.h"
+
+/**
+ * times_table - prints the 9 times table, starting with 0.
+ *
+ */
+void times_table(void)
+{
+	int row;
+	int col;
+	int tmp;
+
+	row = -1;
+	while (++row < 9)
+	{
+		col = -1;
+		tmp = 0;
+		while (++col < 9)
+		{
+			_putchar(tmp);
+			if (col != 8)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			else
+				_putchar('\n');
+			tmp += row;
+		}
+	}
+}
