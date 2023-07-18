@@ -1,10 +1,7 @@
 #include "main.h"
 
 /**
- * main - print alpha
- * Description:  print alphabet.
- *
- * Return: no return.
+ * print_alphabet - print alpha
  */
 void print_alphabet(void)
 {
