@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * _putnbr - Print nbr.
@@ -5,7 +6,7 @@
  */
 void _putnbr(int nbr)
 {
-	int i;
+	long int i;
 
 	i = 10;
 	if (nbr < 0)
@@ -32,9 +33,9 @@ void _putnbr(int nbr)
  */
 int main(void)
 {
-	int n1;
-	int n2;
-	int fibo;
+	unsigned long long int n1;
+	unsigned long long int n2;
+	unsigned long long int fibo;
 	int i;
 
 	n1 = 1;
@@ -49,10 +50,10 @@ int main(void)
 	while (i < 50)
 	{
 		fibo = n1 + n2;
-		_putnbr(fibo);
+		printf("%d",fibo);
 		n1 = n2;
 		n2 = fibo;
-		if (i++ != 49)
+		if (i++ != 46)
 		{
 			_putchar(',');
 			_putchar(' ');
