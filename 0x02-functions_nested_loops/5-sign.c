@@ -7,7 +7,7 @@
  * Description: prints + or - or 0 the sign of a number.
  * Return: On success 1.Upper Case Return 0
  */
-int _isalpha(int n)
+int print_sign(int n)
 {
 	if (n >= 0)
 	{
