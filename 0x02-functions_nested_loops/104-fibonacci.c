@@ -19,7 +19,7 @@ int main(void)
 	while (i < 98)
 	{
 		if (i < 97)
-			printf("%ld", n1);
+			printf("%ld, ", n1);
 		fibo = n1 + n2;
 		n1 = n2;
 		n2 = fibo;
