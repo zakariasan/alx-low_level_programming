@@ -16,7 +16,6 @@ int main(void)
 	n1 = 1;
 	n2 = 2;
 	i = 0;
-	sum = 0;
 	while (i < 98)
 	{
 		if (i < 97)
@@ -26,6 +25,6 @@ int main(void)
 		n2 = fibo;
 		i++;
 	}
-	printf("%ld\n", sum);
+	printf("%ld\n", n1);
 	return (0);
 }
