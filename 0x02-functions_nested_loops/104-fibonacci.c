@@ -9,14 +9,14 @@
 #include <stdio.h>
 int main(void)
 {
-	long int i, n1, n2, j1, j2, k1, k2;
+	unsigned long int i, n1, n2, j1, j2, k1, k2;
 
 	n1 = 1;
 	n2 = 2;
-	printf("%ld", n1);
+	printf("%lu", n1);
 	for (i = 1; i < 91; i++)
 	{
-		printf(", %ld", n2);
+		printf(", %lu", n2);
 		n2 = n2 + n1;
 		n1 = n2 - n1;
 	}
