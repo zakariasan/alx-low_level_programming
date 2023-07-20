@@ -6,7 +6,7 @@
  */
 void print_number(int n)
 {
-	if (n >= -2147483648)
+	if (n >= -2147483647)
 	{
 		ft_putchar('-');
 		ft_putnbr('2');
