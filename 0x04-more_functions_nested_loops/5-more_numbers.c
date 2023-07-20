@@ -36,8 +36,8 @@ void more_numbers(void)
 	int c;
 	int i;
 
-	i = 0;
-	while (i < 10)
+	i = -1;
+	while (++i < 10)
 	{
 		c = 0;
 		while (c <= 14)
