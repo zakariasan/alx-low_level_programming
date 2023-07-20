@@ -1,31 +1,4 @@
-#include <unistd.h>
-#include "main.h"
-
-/**
- * _putnbr - Print nbr.
- * @nbr:nbr to print.
- */
-void _putnbr(int nbr)
-{
-	int i;
-
-	i = 10;
-	if (nbr < 0)
-	{
-		_putchar('-');
-		nbr = -nbr;
-	}
-	while (nbr / i)
-		i = i * 10;
-	i = i / 10;
-	while (i > 1)
-	{
-		_putchar((nbr / i) + '0');
-		nbr = nbr % i;
-		i = i / 10;
-	}
-	_putchar(nbr + '0');
-}
+#include <stdio.h>
 
 /**
 * main - Fizz Buzz.
@@ -34,24 +7,20 @@ void _putnbr(int nbr)
 */
 int main(void)
 {
-	int c;
 	int i;
 
 	i = 0;
 	while (++i < 99)
 	{
 		if ((i % 3 == 0) && (i % 5 == 0))
-			write(1, "FizzBuzz ", 9);
+			printf("FizzBuzz ");
 		else if (i % 3 == 0)
-			write(1, "Fizz ", 5);
+			printf("Fizz ");
 		else if (i % 5 == 0)
-			write(1, "Buzz ", 5);
+			printf("Buzz ");
 		else
-		{
-			_putnbr(i);
-			_putchar(' ');
-		}
+			printf("%d ", i);
 	}
-	write(1, "FizzBuzz\n", 9);
+	printf("FizzBuzz\n");
 	return (0);
 }
