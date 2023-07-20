@@ -12,6 +12,14 @@ int main(void)
 	int i;
 	unsigned long int nbr = 612852475143;
 
-	printf("%d\n", 1);
+	i = sqrt(num) - 1;
+	while (++i)
+	{
+		if (num % i)
+		{
+			printf("%d\n", i);
+			break;
+		}
+	}
 	return (0);
 }
