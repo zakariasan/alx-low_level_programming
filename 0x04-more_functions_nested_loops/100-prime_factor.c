@@ -15,10 +15,10 @@ int main(void)
 	i = sqrt(nbr) - 1;
 	while (++i)
 	{
-		if (nbr % i)
+		if (nbr % i == 0)
 		{
 			printf("%d\n", i);
-			break;
+			return (0);
 		}
 	}
 	return (0);
