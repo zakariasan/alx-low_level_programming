@@ -1,9 +1,10 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
+
 /**
 * main - Fizz Buzz.
 * Description : Write a program that prints the numbers from 1 to 100.
-* Return Sucess
+* Return: Always 0 (Sucess).
 */
 int main(void)
 {
