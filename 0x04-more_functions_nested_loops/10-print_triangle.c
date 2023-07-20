@@ -15,7 +15,7 @@ void print_triangle(int size)
 
 	row = -1;
 	sp = size - 1;
-	col = size - sp; ;
+	col = size - sp;
 	while (++row < size)
 	{
 		spCount = -1;
