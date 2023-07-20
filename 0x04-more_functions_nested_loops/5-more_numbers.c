@@ -27,9 +27,8 @@ void _putnbr(int nbr)
 }
 
 /**
-* print_most_numbers - Print nbrs.
+* more_numbers - Print nbrs.
 * Description : function that prints the numbers
-* (not 2 and 4), from 0 to 9 \n.
 */
 void more_numbers(void)
 {
