@@ -9,9 +9,14 @@
 void print_numbers(void)
 {
 	int c;
+	int i;
 
-	c = 0;
-	while (c <= 14)
-		_putnbr(c++);
-	_putchar('\n');
+	i = 0;
+	while (i < 10)
+	{
+		c = 0;
+		while (c <= 14)
+			_putnbr(c++);
+		_putchar('\n');
+	}
 }
