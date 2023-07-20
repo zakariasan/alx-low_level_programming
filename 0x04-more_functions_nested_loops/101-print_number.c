@@ -2,7 +2,7 @@
 
 /**
  * print_number - Print nbr.
- * @nbr:nbr to print.
+ * @nbr : nbr to print.
  */
 void print_number(int nbr)
 {
