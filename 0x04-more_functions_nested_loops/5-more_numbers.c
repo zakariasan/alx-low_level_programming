@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _putnbr - Print nbr.
  * @nbr:nbr to print.
@@ -30,8 +31,7 @@ void _putnbr(int nbr)
 * Description : function that prints the numbers
 * (not 2 and 4), from 0 to 9 \n.
 */
-
-void print_numbers(void)
+void more_numbers(void)
 {
 	int c;
 	int i;
