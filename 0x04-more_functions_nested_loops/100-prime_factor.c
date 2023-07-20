@@ -10,8 +10,8 @@
 int main(void)
 {
 	int i;
-
 	unsigned long int nbr = 612852475143;
-	printf("%uld\n", 1);
+
+	printf("%d\n", 1);
 	return (0);
 }
