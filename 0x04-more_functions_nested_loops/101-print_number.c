@@ -3,7 +3,7 @@
  * print_number - Print nbr.
  * @nbr:nbr to print.
  */
-void _putnbr(int nbr)
+void print_number(int nbr)
 {
 	int i;
 
