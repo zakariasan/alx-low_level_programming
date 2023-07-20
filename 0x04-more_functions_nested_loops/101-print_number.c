@@ -2,21 +2,26 @@
 
 /**
  * print_number - Print nbr.
- * @nbr : nbr to print.
+ * @n : nbr to print.
  */
-void print_number(int nbr)
+void print_number(int n)
 {
-
-	if (nbr < 0)
+	if (n == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		n = 147483648;
+	}
+	if (n < 0)
 	{
 		_putchar('-');
-		nbr = -nbr;
+		n = -n;
 	}
-	if (nbr >= 10)
+	if (n >= 10)
 	{
-		print_number(nbr / 10);
-		print_number(nbr % 10);
+		print_number(n / 10);
+		print_number(n % 10);
 	}
 	else
-		_putchar(nbr + '0');
+		_putchar(n + '0');
 }
