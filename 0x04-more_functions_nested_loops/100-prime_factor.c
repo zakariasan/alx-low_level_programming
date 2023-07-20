@@ -12,10 +12,10 @@ int main(void)
 	int i;
 	unsigned long int nbr = 612852475143;
 
-	i = sqrt(num) - 1;
+	i = sqrt(nbr) - 1;
 	while (++i)
 	{
-		if (num % i)
+		if (nbr % i)
 		{
 			printf("%d\n", i);
 			break;
