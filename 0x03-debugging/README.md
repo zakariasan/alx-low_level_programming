@@ -1,22 +1,56 @@
-## 0x01. C - Variables, if, else, while
+## 0x03. C - Debugging
 
-![alt text](https://realpython.com/cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Python-while-Loops-Indefinite-Iteration_Watermarked.2dfa40d8e92c.jpg )
+![alt text](https://realpython.com/cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Python-Debugging-With-Pdb_Watermarked.ca76b26fbe1c.jpg)
 
+Debugging is the process of finding and fixing errors in software that prevents it from running correctly. As you become a more advanced programmer and an industry engineer, you will learn how to use debugging tools such as gdb or built-in tools that IDEs have. However, it’s important to understand the concepts and processes of debugging manually.
 
 ## :astronaut: Resources
 
-- [Everything you need to know to start with C.pdf](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/misc/2022/4/e0ccf91eec6b977a9e00ed384dc285df9c2772e3.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230713%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230713T131824Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=b6a5705ec00d9aeb3c16a735bae4c7ca0b67c0982c4f2240830fd8b29c2395d5).
-- [If statements in C ](https://www.cprogramming.com/tutorial/c/lesson2.html).
-- [if…else statement](https://www.tutorialspoint.com/cprogramming/if_else_statement_in_c.htm).
-- [Relational operators](https://www.tutorialspoint.com/cprogramming/c_relational_operators.htm).
-- [Logical operators](https://www.fresh2refresh.com/c-programming/c-operators-expressions/c-logical-operators/).
-- [while loop in C](https://www.tutorialspoint.com/cprogramming/c_while_loop.htm).
-- [Betty Coding Style](https://github.com/alx-tools/Betty/wiki ).
 
+- [Debugging](./https://en.wikipedia.org/wiki/Debugging).
+- [Rubber Duck Debugging](https://www.thoughtfulcode.com/rubber-duck-debugging-psychology/).
 
 ## :desktop_computer:  Tasks
 
-* [0. _putchar]() : 
+* [0. Multiple mains](./0-main.c) : Based on the `main.c` file above, create a file named `0-main.c`. This file must test that the function `positive_or_negative()` gives the correct output when given a case of 0.
+* [1. Like, comment, subscribe](./1-main.c) : Copy this main file. Comment out (don’t delete it!) the part of the code that is causing the output to go into an infinite loop.
+* [2. 0 > 972?](./2-largest_number.c) : Fix the code in 2-largest_number.c so that it correctly prints out the largest of three numbers, no matter the case.
+
+```
+	*carrie@ubuntu:/debugging$ cat 2-largest_number.c
+	#include "main.h"
+	/**
+ 	* largest_number - returns the largest of 3 numbers
+ 	* @a: first integer
+ 	* @b: second integer
+ 	* @c: third integer
+ 	* Return: largest number
+ 	*/
+
+int largest_number(int a, int b, int c)
+{
+    int largest;
+
+    if (a > b && b > c)
+    {
+        largest = a;
+    }
+    else if (b > a && a > c)
+    {
+        largest = b;
+    }
+    else
+    {
+        largest = c;
+    }
+
+    return (largest);
+}
+
+carrie@ubuntu:/debugging$``` 
+
+* [3. Leap year](./3-print_remaining_days.c) :  Fix the print_remaining_days() function so that the output works correctly for all dates and all leap years.
+
 
 ## :abacus: Advanced_part
-
+Nop for this project
