@@ -32,13 +32,16 @@ void print_array(int *a, int n)
 {
 	int i;
 
-	i = -1;
-	while (++i < n - 1)
+	i = 0;
+	if (n > 0)
 	{
-		print_number(a[i]);
-		_putchar(',');
-		_putchar(' ');
-	}
+		while (i < n - 1)
+		{
+			print_number(a[i++]);
+			_putchar(',');
+			_putchar(' ');
+		}
+	}	
 	print_number(a[i]);
 	_putchar('\n');
 }
