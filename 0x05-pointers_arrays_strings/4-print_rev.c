@@ -4,7 +4,8 @@
 * print_rev - prints rev string.
 * @s: string to print.
 *
-* Description: function that prints a string, in reverse, followed by a new line.
+* Description: function that prints a string, in reverse
+* followed by a new line.
 */
 void print_rev(char *s)
 {
