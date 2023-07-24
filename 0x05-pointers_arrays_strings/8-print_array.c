@@ -33,7 +33,9 @@ void print_array(int *a, int n)
 	int i;
 
 	i = 0;
-	if (n > 0)
+	if (n <= 0)
+		_putchar('\n');
+	else
 	{
 		while (i < n - 1)
 		{
@@ -41,7 +43,7 @@ void print_array(int *a, int n)
 			_putchar(',');
 			_putchar(' ');
 		}
-	}	
-	print_number(a[i]);
-	_putchar('\n');
+		print_number(a[i]);
+		_putchar('\n');
+	}
 }
