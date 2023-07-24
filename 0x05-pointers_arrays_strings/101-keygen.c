@@ -40,9 +40,9 @@ void generate_password(char* password) {
 }
 
 int main() {
-    srand(time(NULL)); 
 
     char password[MAX_PASSWORD_LENGTH + 1];
+    srand(time(NULL)); 
     generate_password(password);
 
     printf("%s\n", password);
