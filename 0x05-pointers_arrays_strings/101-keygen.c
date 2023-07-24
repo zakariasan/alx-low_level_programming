@@ -8,27 +8,28 @@
  *
  * Return: Always 0 (Success)
  */
-int main(void)
+int main(int ac, char **argv)
 {
-	int pass[100];
-	int i, sum, n;
+	unsigned long int c;
 
-	sum = 0;	
-
-
-	for (i = 0; i < 100; i++)
+	c = 0;
+	if (ac != 2)
 	{
-		pass[i] = rand() % 78;
-		sum += (pass[i] + '0');
-		putchar(pass[i] + '0');
-		if ((2772 - sum) - '0' < 78)
-		{
-			n = 2772 - sum - '0';
-			sum += n;
-			putchar(n + '0');
-			break;
-		}
+		printf("Usage: %s password\n", argv[0]);
+		return (1);
 	}
-
+	while (*argv[1])
+	{
+		c += *argv[1];
+		argv[1]++;
+	}
+	if (c != 2772)
+	{
+		printf("Wrong password\n");
+		return (1);
+	}
+	printf("Tada! Congrats\n");
 	return (0);
+					
 }
+
