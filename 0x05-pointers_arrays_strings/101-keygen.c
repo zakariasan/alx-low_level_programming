@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <string.h>
 #define PASSWORD_LENGTH 15
 #define CORRECT_PASSWORD "Tada! Congrats"
 
@@ -16,7 +16,7 @@ void generate_password(char *password) {
   }
 }
 
-bool check_password(char *password) {
+int check_password(char *password) {
   return strcmp(password, CORRECT_PASSWORD) == 0;
 }
 
