@@ -1,92 +1,26 @@
 #include <stdio.h>
-/**
+#include <stdlib.h>
+#include <time.h>
 
- * checksum - Calculate the sum of every character of a string
+#define PASSWORD_LENGTH 10
 
- *
+void generate_password(char *password) {
+  char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+{[]}\|;:'\",./?";
+  int i;
 
- * @p: A pointer to the first character of a string
+  srand(time(NULL));
 
- * Return: The sum of every character in @p
-
-*/
-
-unsigned long int checksum(char *p)
-
-{
-
-	unsigned long int c;
-
-
-
-	c = 0;
-
-	while (*p)
-
-	{
-
-		c += *p;
-
-		p++;
-
-	}
-
-	return (c);
-
+  for (i = 0; i < PASSWORD_LENGTH; i++) {
+    password[i] = characters[rand() % (sizeof(characters) - 1)];
+  }
 }
 
+int main() {
+  char password[PASSWORD_LENGTH];
 
+  generate_password(password);
 
-/**
+  printf("Your password is: %s\n", password);
 
- * main - Entry point
-
- *
-
- * @ac: Arguments counter
-
- * @av: Arguments array
-
- * Return: 1 on error, 0 otherwise
-
-*/
-
-int main(int ac, char **av)
-
-{
-
-	unsigned long int c;
-
-
-
-	if (ac != 2)
-
-	{
-
-		printf("Usage: %s password\n", av[0]);
-
-		return (1);
-
-	}
-
-	c = checksum(av[1]);
-
-	/* printf("%lu\n", c); */
-
-	/* "Talk is cheap. Show me the code." */
-
-	if (c != 2772)
-
-	{
-
-		printf("Wrong password\n");
-
-		return (1);
-
-	}
-
-	printf("Tada! Congrats\n");
-
-	return (0);
-
+  return 0;
 }
