@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 10
+#define PASSWORD_LENGTH 15
+#define CORRECT_PASSWORD "Tada! Congrats"
 
 void generate_password(char *password) {
   char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+{[]}|;:'\",./?";
@@ -15,12 +16,20 @@ void generate_password(char *password) {
   }
 }
 
+bool check_password(char *password) {
+  return strcmp(password, CORRECT_PASSWORD) == 0;
+}
+
 int main() {
   char password[PASSWORD_LENGTH];
 
   generate_password(password);
 
-  printf("Your password is: %s\n", password);
+  if (check_password(password)) {
+    printf("Tada! Congrats\n");
+  } else {
+    printf("Wrong password\n");
+  }
 
   return 0;
 }
