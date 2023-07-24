@@ -18,12 +18,12 @@ int _atoi(char *s)
 	n = 1;
 	while ((s[i] < '0' || s[i] > '9') && s[i])
 	{
+		if (s[i] == '-')
+			n *= -1;
 		i++;
 	}
 	if (s[i] >= '0' && s[i] <= '9' && s[i])
 	{
-		if (s[i - 1] == '-')
-			n = -1;
 		while (s[i] >= '0' && s[i] <= '9' && s[i])
 		{
 			nbr = nbr * 10 + s[i] - '0';
