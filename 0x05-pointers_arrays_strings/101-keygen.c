@@ -10,18 +10,18 @@
  */
 int main(void)
 {
-	int password[55];
+	int password[69];
 	int i;
 	int sum;
 
 	sum = 0;
-	i = 0;	
+	i = -1;	
 	srand(time(NULL));
-	while (i <= 55)
+	while (++i <= 69)
 	{
 		password[i] = rand() % 78;
 		sum += (password[i] + '0');
-		putchar(password[i++] + '0');
+		putchar(password[i] + '0');
 		if ((2772 - sum) - '0' < 78)
 		{
 			putchar(2772 - sum + '0');
