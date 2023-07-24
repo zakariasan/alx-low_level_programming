@@ -5,7 +5,7 @@
 #define PASSWORD_LENGTH 10
 
 void generate_password(char *password) {
-  char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+{[]}\|;:'\",./?";
+  char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+{[]}|;:'\",./?";
   int i;
 
   srand(time(NULL));
