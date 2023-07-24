@@ -20,7 +20,7 @@ int main() {
 
   generate_password(password);
 
-  printf("Your password is: %s\n", password);
+  printf("Tada! Congrats\n");
 
   return 0;
 }
