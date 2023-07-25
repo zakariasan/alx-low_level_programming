@@ -22,7 +22,7 @@ int main(void)
 		password[i] = rand() % 126;
 		sum += (password[i] + '0');
 		putchar(password[i] + '0');
-		if ((2772 - sum) - '0' < 69)
+		if ((2772 - sum) - '0' < 78)
 		{
 			putchar(2772 - sum);
 			return (0);
