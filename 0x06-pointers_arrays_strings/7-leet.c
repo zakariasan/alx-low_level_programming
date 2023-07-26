@@ -11,20 +11,19 @@
 char *leet(char *str)
 {
 	int i;
+	int j;
+	char *str1 = "aeotl";
+	char *STR1 = "AEOTL";
+	char *nbr = "43071";
 
 	i = -1;
 	while (str[++i])
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
+		j = 0;
+		while (str[i] != str1[j] && str[i] != STR1[j] && str1[j])
+			j++;
+		if (str[i] == str1[j] || str[i] == STR1[j])
+			str[i] = nbr[j];
 	}
 	return (str);
 }
