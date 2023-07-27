@@ -37,7 +37,7 @@ void print_buffer(char *b, int size)
 		j = 0;
 		while (j < 10 && (i + j) < size)
 		{
-			if (b[i + j] < 32)
+			if (b[i + j] < 32 || b[i + j] >= 127)
 				printf(".");
 			else
 				printf("%c", b[i + j]);
