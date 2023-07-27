@@ -19,7 +19,7 @@ int main(void)
 	srand(time(NULL));
 	while (++i <= 69)
 	{
-		password[i] = rand() % 126;
+		password[i] = rand() % 78;
 		sum += (password[i] + '0');
 		putchar(password[i] + '0');
 		if ((2772 - sum) - '0' < 78)
