@@ -1,6 +1,21 @@
-#include <string.h>
-#include <stdio.h>
 #include "main.h"
+
+/**
+* _strlen - lenght of str.
+* @str: str.
+*
+* Description: Calculate length of str.
+* Return: length of str
+*/
+int _strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 /**
 * _strrev - Reverse str.
@@ -17,7 +32,7 @@ char *_strrev(char *str)
 	int j;
 	int tmp;
 
-	j = strlen(str);
+	j = _strlen(str);
 	i = -1;
 	tmp = 0;
 	while (++i < --j)
@@ -49,8 +64,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int buffer;
 	int size_count;
 
-	i = strlen(n1);
-	j = strlen(n2);
+	i = _strlen(n1);
+	j = _strlen(n2);
 	buffer = 0;
 	size_count = 0;
 	if (--i >= size_r || --j  >= size_r)
@@ -73,7 +88,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		i--;
 		j--;
 		if (size_count == size_r)
-			return (0);	
+			return (0);
 	}
 	*(r + size_count) = 0;
 	r = _strrev(r);
