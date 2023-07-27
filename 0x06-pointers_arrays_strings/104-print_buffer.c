@@ -26,13 +26,14 @@ void print_buffer(char *b, int size)
 			printf("%02x", b[i + j]);
 			j++;
 			if (j % 2 == 0)
-				printf(" ");
+				putchar(' ');
 		}
 		while (j < 10)
 		{
 			printf("  ");
-			if (j++ % 2 == 0)
-				printf(" ");
+			j++;
+			if (j % 2 == 0)
+				putchar(' ');
 		}
 		j = 0;
 		while (j < 10 && (i + j) < size)
