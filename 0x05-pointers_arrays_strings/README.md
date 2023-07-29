@@ -1,22 +1,38 @@
 ## 0x04. C - More functions, more nested loops
  
-![alt text](https://bertwagner.com/wp-content/uploads/2018/12/Hash-Match-Join-spill-looping-1.gif)
-
+![alt text](https://www.xitalogy.com/media/posts/a-tour-of-cpp/c-and-cpp-pointers/char-int-and-pointers-in-memory-real-implementation.png)
 
 ## :astronaut: Resources
 
-- [Relational operators](https://www.tutorialspoint.com/cprogramming/c_relational_operators.htm).
-- [Logical operators](https://www.fresh2refresh.com/c-programming/c-operators-expressions/c-logical-operators/).
-- [while loop in C](https://www.tutorialspoint.com/cprogramming/c_while_loop.htm).
-- [Betty Coding Style](https://github.com/alx-tools/Betty/wiki ).
-
+- [C-Arrays](https://www.tutorialspoint.com/cprogramming/c_arrays.htm ).
+- [C-Pointers](https://www.tutorialspoint.com/cprogramming/c_pointers.htm).
+- [C-Strings](https://www.tutorialspoint.com/cprogramming/c_strings.htm).
+- [Memory Layout](https://aticleworld.com/memory-layout-of-c-program/).
 
 ## :desktop_computer:  Tasks
 
-* [0. isupper](./0-isupper.c) : Write a function that checks for uppercase character.
+* [0. 98 Battery st.](./0-reset_to_98.c) : Write a function that takes a pointer to an `int` as parameter and updates the value it points to to `98`. 
+
+* [1. Don't swap horses in crossing a stream](./1-swap.c) : Write a function that swaps the values of two integers. Prototype: `void swap_int(int *a, int *b);`
+
+* [2. This report, by its very length, defends itself against the risk of being read](./2-strlen.c) : Write a function that returns the length of a string. Prototype: `int _strlen(char *s);`
+
+* [3. I do not fear computers. I fear the lack of them](./3-puts.c) : Write a function that prints a string, followed by a new line, to stdout. Prototype: `void _puts(char *str);`
+
+* [4. I can only go one way. I've not got a reverse gear](./4-print_rev.c) : Write a function that prints a string, in reverse, followed by a new line. Prototype: `void print_rev(char *s);`
+
+* [5. A good engineer thinks in reverse and asks himself about the stylistic consequences of the components and systems he proposes](./5-rev_string.c) : `void rev_string(char *s);`
+
+* [6. Half the lies they tell about me aren't true](./6-puts2.c) : Write a function that prints every other character of a string, starting with the first character, followed by a new line. Prototype: `void puts2(char *str);`
+
+* [7. Winning is only half of it. Having fun is the other half](./7-puts_half.c) : Write a function that prints half of a string, followed by a new line.
+
+* [8. Arrays are not pointers](./8-print_array.c) : rite a function that prints `n` elements of an array of integers, followed by a new line.
+
+* [9. strcpy](./9-strcpy.c) : Prototype: `char *_strcpy(char *dest, char *src);`
+
 ## :abacus: Advanced_part
 
-* [11. The problem of distinguishing prime numbers from composite numbers and of resolving the latter into their prime factors is known to be one of the most important and useful in arithmetic](./100-prime_factor.c) : Write a program that finds and prints the largest prime factor of the number `612852475143`, followed by a new line.
+* [10. Great leaders are willing to sacrifice the numbers to save the people. Poor leaders sacrifice the people to save the numbers](./100-atoi.c) : Write a function that convert a string to an integer.
 
-
-
+* [11. Don't hate the hacker, hate the code](./101-keygen.c) :  Create a program that generates random valid passwords for the program the `a.out` code is [101-crackme.](https://github.com/alx-tools/0x04.c)
