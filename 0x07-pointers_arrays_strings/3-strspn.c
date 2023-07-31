@@ -24,8 +24,7 @@ unsigned int _strspn(char *s, char *accept)
 			j++;
 		if (!accept[j])
 			return (count);
-		else
-			count++;
+		count++;
 	}
 	return (count);
 }
