@@ -11,6 +11,7 @@ char *_strstr(char *haystack, char *needle);
 unsigned int _strspn(char *s, char *accept);
 
 void print_chessboard(char (*a)[8]);
+void print_diagsums(int *a, int size);
 void _putchar(char c);
 
 #endif /* MAIN_H */
