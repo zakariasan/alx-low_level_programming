@@ -1,20 +1,19 @@
 #include "main.h"
 
 /**
-* _memcpy - copies memory area.
-* @dest: memo area.
-* @src: str to cpy.
-* @n: first n bytes of memo to cpy.
+* _strchr - locates a character in a string.
+* @s: string srouce.
+* @c: char to search for.
 *
-* Description :function that copies memory area.
-* Return: dest pointer.
+* Description : function that locates a character in a string.
+* Return: src in char pointer.
 */
 
 char *_strchr(char *s, char c)
 {
 
-	while (*(s++))
-		if (*s == c)
-			return (s);
+	while (*s)
+		if (*(s++) == c)
+			return (--s);
 	return (0);
 }
