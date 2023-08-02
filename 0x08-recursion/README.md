@@ -1,4 +1,5 @@
-## 0x07. C - Even more pointers, arrays and strings 
+## 0x08. C - Recursion
+
 
 ![alt text](https://storage.googleapis.com/dycr-web/image/topic/c/pointers-string/cityptr-mem.jpg)
 
