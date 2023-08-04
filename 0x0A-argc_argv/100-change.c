@@ -13,7 +13,7 @@
 int main(int ac, char **av)
 {
 	int amount;
-	int cache[5] = {25, 10, 5, 2, 1};
+	int cache[] = {25, 10, 5, 2, 1};
 	int back;
 	int i;
 	int tms;
@@ -34,11 +34,9 @@ int main(int ac, char **av)
 			if (back > amount)
 			{
 				back -= cache[i];
-				i++;
+				(i > 5) ? i :i++;
 				tms--;
 			}
-			if (i > 5)
-				i = 4;
 			back += cache[i];
 			tms++;
 		}
