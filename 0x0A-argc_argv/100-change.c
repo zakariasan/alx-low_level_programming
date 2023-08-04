@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * main - adds positive numbers.
+ * main -  prints the minimum number of coins to make change for an amount.
  * @ac: argument count
  * @av: argument vector
  *
@@ -22,6 +22,11 @@ int main(int ac, char **av)
 		amount = atoi(av[1]);
 		i = 0;
 		tms = 0;
+		if (amount < 0)
+		{
+			printf("0\n");
+			return (0);
+		}
 		while (amount != 0)
 		{
 			if (amount < 0)
