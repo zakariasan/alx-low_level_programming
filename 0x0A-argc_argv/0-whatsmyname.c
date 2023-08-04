@@ -9,7 +9,7 @@
 
 int main(int ac, char **av)
 {
-	while(*av[ac - 1])
+	while (*av[ac - 1])
 		_putchar(*av[0]++);
 	_putchar('\n');
 	return (0);
