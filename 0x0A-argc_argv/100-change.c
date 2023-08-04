@@ -31,6 +31,8 @@ int main(int ac, char **av)
 		}
 		while (back != amount)
 		{
+			back += cache[i];
+			tms++;
 			if (back > amount)
 			{
 				back -= cache[i];
@@ -40,8 +42,6 @@ int main(int ac, char **av)
 				 i++;
 				tms--;
 			}
-			back += cache[i];
-			tms++;
 		}
 		printf("%d\n", tms);
 	}
