@@ -34,7 +34,10 @@ int main(int ac, char **av)
 			if (back > amount)
 			{
 				back -= cache[i];
-				(i > 5) ? i :i++;
+				if (i > 5)
+					i = 4;
+				else
+				 i++;
 				tms--;
 			}
 			back += cache[i];
