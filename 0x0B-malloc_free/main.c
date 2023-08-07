@@ -36,8 +36,7 @@ void print_grid(int **grid, int width, int height)
  */
 int main(void)
 {
-	
-	int **grid;
+		int **grid;
 	int h;
 	int w;
 
@@ -51,5 +50,5 @@ int main(void)
 	print_grid(grid, h, w);
 	printf("\n");
 	free(grid);
-    return (0);
+	return (0);
 }
