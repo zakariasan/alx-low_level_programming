@@ -3,35 +3,19 @@
 #include "main.h"
 
 /**
- * alloc_grid -  2 dimensional array
- * @width: width of array
+ * free_grid -  free 2 dimensional array
+ * @grid: grid array
  * @height: height of array
  *
- * Description: function that returns a pointer to a 2 dimensional array of
- * integers.
- * Return: NULL or array.
+ * Description: function that frees a 2 dimensional grid previously created by
+ * your alloc_grid function.
  */
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
-	int **arr;
-	int i;
 	int j;
 
-	i = -1;
-	arr = (int **) malloc(sizeof(int) * height);
-	if(!arr)
-		return (NULL);
-	while(++i < height)
-	{
-		*(arr + i) = (int *) malloc(sizeof(int) * width);
-		if (!(arr + i))
-			return (NULL);
-	}
-	for (i = 0; i < height; i++)
-	{
-		for(j = 0; j < width; j++)
-			arr[i][j] = 0;
-	}
-	return (arr);
+	for (j = 0; j < height; j++)
+		free(*(grid + j));
+	free(grid);
 }
 
