@@ -66,7 +66,7 @@ char **strtow(char *str)
 	if (!str)
 		return (NULL);
 	size = count_word(str);
-	grid = (char **) malloc(sizeof(char *) * size + 1);
+	grid = (char **) malloc(sizeof(char *) * (size + 1));
 	if (!grid || !size)
 		return (NULL);
 	size = 0;
@@ -78,7 +78,7 @@ char **strtow(char *str)
 			size++;
 		if (str[i] <= ' ' && size != 0)
 		{
-			grid[word] = (char *) malloc(sizeof(char) * size + 1);
+			grid[word] = (char *) malloc(sizeof(char) * (size + 1));
 			if (!grid[word])
 			{
 				free_str_grid(grid, word);
