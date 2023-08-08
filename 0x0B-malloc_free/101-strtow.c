@@ -38,6 +38,8 @@ int count_word(char *str)
 			str++;
 		if (*str > ' ' && *(str + 1) <= ' ')
 			count++;
+		if (!*str)
+			return (count);
 		str++;
 	}
 	return (count);
@@ -64,8 +66,8 @@ char **strtow(char *str)
 	if (!str)
 		return (NULL);
 	size = count_word(str);
-	grid = (char **) malloc(sizeof(char *) * size);
-	if (!grid)
+	grid = (char **) malloc(sizeof(char *) * size + 1);
+	if (!grid || !size)
 		return (NULL);
 	size = 0;
 	while (str[i])
@@ -87,6 +89,7 @@ char **strtow(char *str)
 				grid[word][j++] = str[i - size--];
 			grid[word++][j] = 0;
 		}
+		grid[word] = NULL;
 	}
 	return (grid);
 }
