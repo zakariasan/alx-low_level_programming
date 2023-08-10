@@ -3,46 +3,29 @@
 #include "main.h"
 
 /**
- * free_grid -  free 2 dimensional array
- * @grid: grid array
- * @height: height of array
- *
- * Description: function that frees a 2 dimensional grid previously created by
- * your alloc_grid function.
- */
-void free_grid(void **grid, size_t height)
-{
-	size_t j;
-
-	for (j = 0; j < height; j++)
-		free(*(grid + j));
-	free(grid);
-}
-/**
- * _calloc - calloc func 
+ * _calloc - calloc func
  * @nmemb: nbr of elements.
  * @size: sizeof Element.
  *
- * Description: function that allocates memory for an array, using malloc.
+ * Description: function that allocates memory for an array
+ * using malloc.
+ * Return: memo set to zero with nmemb elements or NULL
  */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void **caloc;
+	void *caloc;
 	unsigned int i;
+	int *ptr;
 
+	i = -1;
 	if (!nmemb || !size)
 		return (NULL);
-	i = -1;
-	caloc = malloc(sizeof(unsigned int) * nmemb);
+	caloc = malloc(sizeof(size) * nmemb);
 	if (!caloc)
 		return (NULL);
+	ptr = caloc;
 	while (++i < nmemb)
-	{
-		caloc[i] = malloc(sizeof(unsigned int) * size);
-		if (!caloc[i])
-			free_grid(caloc, i);
-		caloc[i] = 0;
-	}
+		ptr[i] = 0;
 	return (caloc);
 }
