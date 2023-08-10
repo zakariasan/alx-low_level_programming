@@ -14,7 +14,9 @@ unsigned int _strlen(char *str)
 	unsigned int i;
 
 	i = 0;
-	while (*str)
+	if (!str)
+		str = "";
+	while (*str && str != NULL)
 	{
 		str++;
 		i++;
