@@ -1,7 +1,20 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "main.h"
+
+/**
+* _puts - prints a string.
+* @str: string to print.
+*
+* Description: unction that prints a string, followed by a new line, to stdout.
+*/
+void _puts(char *str)
+{
+	while (*str)
+	{
+		_putchar(*str++);
+	}
+	_putchar('\n');
+}
 
 /**
  * _strlen - length of str
@@ -57,36 +70,31 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  */
 char *multy(char *num1, char *num2)
 {
-	int len1 = strlen(num1);
-	int len2 = strlen(num2);
-	int resultLen = len1 + len2;
-	int *result = (int *)calloc(resultLen, sizeof(int));
+	int *result = (int *)calloc(_strlen(num1) + _strlen(num2), sizeof(int));
 	int i;
 	int j;
-	int startIdx = 0;
 	char *resultStr;
 	int idx = 0;
-	int sum;
-	int mul;
 
 	if (result == NULL)
 		return (NULL);
-	for (i = len1 - 1; i >= 0; i--)
+	for (i = _strlen(num1) - 1; i >= 0; i--)
 	{
-		for (j = len2 - 1; j >= 0; j--)
+		for (j = _strlen(num2) - 1; j >= 0; j--)
 		{
-			mul = (num1[i] - '0') * (num2[j] - '0');
-			sum = result[i + j + 1] + mul;
-			result[i + j + 1] = sum % 10;
-			result[i + j] += sum / 10;
+			result[i + j + 1] += (num1[i] - '0') * (num2[j] - '0');
+			result[i + j + 1] = result[i + j + 1] % 10;
+			result[i + j] += result[i + j + 1] / 10;
 		}
 	}
-	while (startIdx < resultLen - 1 && result[startIdx] == 0)
-		startIdx++;
-	resultStr = (char *)malloc((resultLen - startIdx + 1) * sizeof(char));
+	j = 0;
+	while (j < (_strlen(num1) + _strlen(num2) - 1) && result[j] == 0)
+		j++;
+	resultStr = (char *)malloc(((_strlen(num1) + _strlen(num2)) -  j + 1) *
+			sizeof(char));
 	if (resultStr == NULL)
 		return (NULL);
-	for (i = startIdx; i < resultLen; i++)
+	for (i = j; i < (_strlen(num1) + _strlen(num2)); i++)
 		resultStr[idx++] = result[i] + '0';
 	resultStr[idx] = '\0';
 
@@ -95,7 +103,7 @@ char *multy(char *num1, char *num2)
 }
 
 /**
- * _digit - checks digit or not
+ * _isalpha - checks digit or not
  * @str: str argument
  *
  * Description:  checks for alphabetic character.
@@ -126,11 +134,10 @@ int main(int ac, char **av)
 
 	if (ac != 3 || _isalpha(av[1]) || _isalpha(av[2]))
 	{
-		printf("Error\n");
+		_puts("Error\n");
 		exit(98);
 	}
 	res = multy(av[1], av[2]);
-
-	printf("%s\n", res);
+	_puts(res);
 	return (0);
 }
