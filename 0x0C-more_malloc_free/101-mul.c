@@ -58,40 +58,43 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  */
 char *multy(char *num1, char *num2)
 {
-	int len1 = _strlen(num1);
-	int len2 = _strlen(num2);
-	int resultLen;
-	int *result;
-	int idx = 0;
-	int mul;
-	int sum;
-	char *resultStr;
-	int i;
-	int j;
-	resultLen = len1 + len2;
-	result = (int *)_calloc(resultLen, sizeof(int));
-	for (i = len1 - 1; i >= 0; i--)
-	{
-		for (j = len2 - 1; j >= 0; j--)
-		{
-			mul = (num1[i] - '0') * (num2[j] - '0');
-			sum = result[i + j + 1] + mul;
-			result[i + j + 1] = sum % 10;
-			result[i + j] += sum / 10;
-		}
-	}
-	resultStr = (char *) malloc((resultLen + 1) * sizeof(char));
-	if (!resultStr)
-		return (NULL);
-	for (i = 0; i < resultLen; i++)
-	{
-		if (idx == 0 && result[i] == 0)
-			continue;
-		resultStr[idx++] = result[i] + '0';
-	}
-	resultStr[idx] = '\0';
-	free(result);
-	return (resultStr);
+	  int len1 = strlen(num1);
+    int len2 = strlen(num2);
+    int resultLen = len1 + len2;
+    int *result = (int *)calloc(resultLen, sizeof(int));
+    
+    if (result == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+        exit(1);
+    }
+
+    for (int i = len1 - 1; i >= 0; i--) {
+        for (int j = len2 - 1; j >= 0; j--) {
+            int mul = (num1[i] - '0') * (num2[j] - '0');
+            int sum = result[i + j + 1] + mul;
+            result[i + j + 1] = sum % 10;
+            result[i + j] += sum / 10;
+        }
+    }
+    
+    // Convert result to string
+    int startIdx = 0;
+    while (startIdx < resultLen - 1 && result[startIdx] == 0) {
+        startIdx++;
+    }
+    char *resultStr = (char *)malloc((resultLen - startIdx + 1) * sizeof(char));
+    if (resultStr == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+        exit(1);
+    }
+    int idx = 0;
+    for (int i = startIdx; i < resultLen; i++) {
+        resultStr[idx++] = result[i] + '0';
+    }
+    resultStr[idx] = '\0';
+    
+    free(result);
+    return resultStr;
 }
 
 /**
