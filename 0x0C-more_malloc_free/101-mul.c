@@ -4,12 +4,11 @@
 #include "main.h"
 
 /**
- * multy - mult digits
- * @num1: str argument nb1
- * @num2: str argument nb2
+ * _strlen - length of str
+ * @str: str argument
  *
- * Description: func to mult digit by digit
- * Return: On success a nbr. else NULL
+ * Description: func calc lenth of str
+ * Return: On success a nbr. else 0
  */
 int _strlen(char *str)
 {
@@ -58,43 +57,41 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  */
 char *multy(char *num1, char *num2)
 {
-	  int len1 = strlen(num1);
-    int len2 = strlen(num2);
-    int resultLen = len1 + len2;
-    int *result = (int *)calloc(resultLen, sizeof(int));
-    
-    if (result == NULL) {
-        fprintf(stderr, "Memory allocation failed.\n");
-        exit(1);
-    }
+	int len1 = strlen(num1);
+	int len2 = strlen(num2);
+	int resultLen = len1 + len2;
+	int *result = (int *)calloc(resultLen, sizeof(int));
+	int i;
+	int j;
+	int startIdx = 0;
+	char *resultStr;
+	int idx = 0;
+	int sum;
+	int mul;
 
-    for (int i = len1 - 1; i >= 0; i--) {
-        for (int j = len2 - 1; j >= 0; j--) {
-            int mul = (num1[i] - '0') * (num2[j] - '0');
-            int sum = result[i + j + 1] + mul;
-            result[i + j + 1] = sum % 10;
-            result[i + j] += sum / 10;
-        }
-    }
-    
-    // Convert result to string
-    int startIdx = 0;
-    while (startIdx < resultLen - 1 && result[startIdx] == 0) {
-        startIdx++;
-    }
-    char *resultStr = (char *)malloc((resultLen - startIdx + 1) * sizeof(char));
-    if (resultStr == NULL) {
-        fprintf(stderr, "Memory allocation failed.\n");
-        exit(1);
-    }
-    int idx = 0;
-    for (int i = startIdx; i < resultLen; i++) {
-        resultStr[idx++] = result[i] + '0';
-    }
-    resultStr[idx] = '\0';
-    
-    free(result);
-    return resultStr;
+	if (result == NULL)
+		return (NULL);
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			mul = (num1[i] - '0') * (num2[j] - '0');
+			sum = result[i + j + 1] + mul;
+			result[i + j + 1] = sum % 10;
+			result[i + j] += sum / 10;
+		}
+	}
+	while (startIdx < resultLen - 1 && result[startIdx] == 0)
+		startIdx++;
+	resultStr = (char *)malloc((resultLen - startIdx + 1) * sizeof(char));
+	if (resultStr == NULL)
+		return (NULL);
+	for (i = startIdx; i < resultLen; i++)
+		resultStr[idx++] = result[i] + '0';
+	resultStr[idx] = '\0';
+
+	free(result);
+	return (resultStr);
 }
 
 /**
@@ -132,8 +129,6 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
-	if (_strlen(av[1]) < 20 || _strlen(av[2]) < 20)
-		printf("%d" , atoi(av[1]) * atoi(av[2]));
 	res = multy(av[1], av[2]);
 
 	printf("%s\n", res);
