@@ -35,31 +35,7 @@ int _strlen(char *str)
 	}
 	return (i);
 }
-/**
- * _calloc - calloc func
- * @nmemb: nbr of elements.
- * @size: sizeof Element.
- *
- * Description: function that allocates memory for an array
- * using malloc.
- * Return: memo set to zero with nmemb elements or NULL
- */
 
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	void *caloc;
-	unsigned int i;
-
-	if (!nmemb || !size)
-		return (NULL);
-	caloc = malloc(size * nmemb);
-	if (!caloc)
-		return (NULL);
-	i = -1;
-	while (++i < (nmemb * size))
-		((char *)caloc)[i] = 0;
-	return (caloc);
-}
 /**
  * multy - mult digits
  * @num1: str argument nb1
@@ -70,22 +46,29 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  */
 char *multy(char *num1, char *num2)
 {
-	int *result = (int *)calloc(_strlen(num1) + _strlen(num2), sizeof(int));
-	int i;
+	int *result;
+	int i = 0;
 	int j;
 	char *resultStr;
 	int idx = 0;
+	int next;
 
+	result = (int *)malloc((_strlen(num1) + _strlen(num2) + 1) * sizeof(int));
+	while (i <= _strlen(num1) + _strlen(num2))
+		result[i++] = 0;
 	if (result == NULL)
 		return (NULL);
 	for (i = _strlen(num1) - 1; i >= 0; i--)
 	{
+		next = 0;
 		for (j = _strlen(num2) - 1; j >= 0; j--)
 		{
-			result[i + j + 1] += (num1[i] - '0') * (num2[j] - '0');
-			result[i + j + 1] = result[i + j + 1] % 10;
-			result[i + j] += result[i + j + 1] / 10;
+			next += (num1[i] - '0') * (num2[j] - '0');
+			result[i + j + 1] = next % 10;
+			next /= 10;
 		}
+		if (next > 0)
+			result[i + j + 1] += next;
 	}
 	j = 0;
 	while (j < (_strlen(num1) + _strlen(num2) - 1) && result[j] == 0)
