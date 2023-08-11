@@ -129,7 +129,7 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
-	if (_strlen(av[1]) > 22 || _strlen(av[2]) > 22)
+	if (_strlen(av[1]) < 20 || _strlen(av[2]) < 20)
 		printf("%d" , atoi(av[1]) * atoi(av[2]));
 	res = multy(av[1], av[2]);
 
