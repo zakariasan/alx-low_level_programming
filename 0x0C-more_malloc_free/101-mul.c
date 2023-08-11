@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
-#define MAX_DIGITS 1024
 
 /**
  * multy - mult digits
