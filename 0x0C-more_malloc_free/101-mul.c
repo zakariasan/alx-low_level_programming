@@ -44,45 +44,32 @@ int _strlen(char *str)
  * Description: func to mult digit by digit
  * Return: On success a nbr. else NULL
  */
-char *multy(char *num1, char *num2)
+int *multy(char *num1, char *num2)
 {
-	int *result;
+	int *res;
 	int i = 0;
 	int j;
-	char *resultStr;
-	int idx = 0;
 	int next;
+	int size1 = _strlen(num1);
+	int size2 = _strlen(num2);
 
-	result = (int *)malloc((_strlen(num1) + _strlen(num2) + 1) * sizeof(int));
-	while (i <= _strlen(num1) + _strlen(num2))
-		result[i++] = 0;
-	if (result == NULL)
+	if (!size2 || !size1)
 		return (NULL);
-	for (i = _strlen(num1) - 1; i >= 0; i--)
+	res = (int *)malloc((size1 + size2 + 1) * sizeof(int));
+	if (!res)
+		return (NULL);
+	while (i <= (_strlen(num1) + _strlen(num2)))
+		res[i++] = 0;
+	for (i = size1 - 1; i >= 0; i--)
 	{
-		next = 0;
-		for (j = _strlen(num2) - 1; j >= 0; j--)
+		for (j = size2 - 1; j >= 0; j--)
 		{
-			next += (num1[i] - '0') * (num2[j] - '0');
-			result[i + j + 1] = next % 10;
-			next /= 10;
+			next = res[i + j + 1] + (num1[i] - '0') * (num2[j] - '0');
+			res[i + j + 1] = next % 10;
+			res[i + j] += next / 10;
 		}
-		if (next > 0)
-			result[i + j + 1] += next;
 	}
-	j = 0;
-	while (j < (_strlen(num1) + _strlen(num2) - 1) && result[j] == 0)
-		j++;
-	resultStr = (char *)malloc(((_strlen(num1) + _strlen(num2)) -  j + 1) *
-			sizeof(char));
-	if (resultStr == NULL)
-		return (NULL);
-	for (i = j; i < (_strlen(num1) + _strlen(num2)); i++)
-		resultStr[idx++] = result[i] + '0';
-	resultStr[idx] = '\0';
-
-	free(result);
-	return (resultStr);
+	return (res);
 }
 
 /**
@@ -113,14 +100,30 @@ int _isalpha(char *str)
  */
 int main(int ac, char **av)
 {
-	char *res;
+	int *res;
+	int j = 0;
+	int i;
+	char *num1 = av[1];
+	char *num2 = av[2];
 
 	if (ac != 3 || _isalpha(av[1]) || _isalpha(av[2]))
 	{
-		_puts("Error\n");
+		_puts("Error");
 		exit(98);
 	}
 	res = multy(av[1], av[2]);
-	_puts(res);
+	if (!res)
+		return (0);
+	while (j < (_strlen(num1) + _strlen(num2)) && res[j] == 0)
+		j++;
+	if (j == (_strlen(num1) + _strlen(num2)))
+		_puts("0");
+	else
+	{
+		for (i = j; i < (_strlen(num1) + _strlen(num2)); i++)
+			_putchar(res[i] + '0');
+		_putchar('\n');
+	}
+	free(res);
 	return (0);
 }
