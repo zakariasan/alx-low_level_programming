@@ -12,7 +12,7 @@ int main(int ac, char **av)
 {
 	int value;
 
-	value = 0;
+	value = -1;
 	if (ac != 2)
 	{
 		printf("Error\n");
@@ -24,9 +24,9 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(2);
 	}
-	while (value < atoi(av[1]))
+	while (++value < atoi(av[1]))
 	{
-		printf("%02x", ((unsigned char *)main)[value++]);
+		printf("%02x", ((unsigned char *)main)[value]);
 		if (value < atoi(av[1]) - 1)
 			printf(" ");
 	}
