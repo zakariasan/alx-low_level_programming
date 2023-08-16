@@ -29,14 +29,3 @@ int (*get_op_func(char *s))(int, int)
 	return (NULL);
 }
 
-/**
- * op_error - error operation.
- * @nbr: nbr.
- *
- * Description: function that Print Error
- */
-void op_error(int nbr)
-{
-	printf("Error\n");
-	exit(nbr);
-}

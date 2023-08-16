@@ -13,15 +13,24 @@ int main(int ac, char **av)
 	int value;
 
 	if (ac != 4)
-		op_error(98);
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
 	if (strlen(av[2]) != 1)
-		op_error(99);
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
 	f = get_op_func(av[2]);
 
 	if (!f)
-		op_error(99);
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	value = f(atoi(av[1]), atoi(av[3]));
 	printf("%d\n", value);
 	return (0);
