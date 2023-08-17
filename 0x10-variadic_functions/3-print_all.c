@@ -27,9 +27,7 @@ void put_str(va_list c)
 	char *str;
 
 	str = va_arg(c, char *);
-	if (!str)
-		str = "(nil)";
-	printf("%s", str);
+	printf("%s", str ? str : "(nil)");
 }
 
 /**
@@ -42,7 +40,6 @@ void print_all(const char * const format, ...)
 {
 	unsigned int i;
 	unsigned int j;
-	char *sp;
 	va_list ap_arg;
 	op_t tmp[] = {
 		{'c', put_char},
@@ -53,7 +50,6 @@ void print_all(const char * const format, ...)
 
 	va_start(ap_arg, format);
 	i = -1;
-	sp = "";
 	while (format && format[++i])
 	{
 		j = -1;
@@ -61,9 +57,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == tmp[j].typo)
 			{
-				printf("%s", sp);
 				tmp[j].fp(ap_arg);
-				sp = ", ";
+				if (format[i + 1])
+					printf(", ");
 			}
 		}
 	}
