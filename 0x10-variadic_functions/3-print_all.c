@@ -50,7 +50,6 @@ void print_all(const char * const format, ...)
 		{'i', put_int},
 		{'f', put_float},
 		{'s', put_str},
-		{0, NULL}
 	};
 
 	va_start(ap_arg, format);
