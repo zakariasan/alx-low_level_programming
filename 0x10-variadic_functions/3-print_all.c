@@ -6,16 +6,19 @@
  * @c: char
  */
 void put_char(va_list c) {printf("%c", va_arg(c, int)); }
+
 /**
  * put_int - print int.
  * @c: int
  */
 void put_int(va_list c) {printf("%d", va_arg(c, int)); }
+
 /**
  * put_float - print float.
  * @c: float
  */
 void put_float(va_list c) {printf("%f", va_arg(c, double)); }
+
 /**
  * put_str - print str.
  * @c: str
@@ -25,8 +28,11 @@ void put_str(va_list c)
 	char *str;
 
 	str = va_arg(c, char *);
-	printf("%s", (str != NULL) ? str : "(nil)");
+	if (!str)
+		str = "(nil)";
+	printf("%s", str);
 }
+
 /**
  * print_all - print all Typo.
  * @format:type of args
