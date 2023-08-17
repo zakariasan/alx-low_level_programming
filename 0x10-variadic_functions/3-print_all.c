@@ -1,61 +1,71 @@
 #include "variadic_functions.h"
+#include <stdarg.h>
 #include <stdio.h>
 /**
- * put_char - print char
+ * put_char - print char.
  * @c: char
  */
-void put_char(char c) {putchar(c);}
+void put_char(va_list c) {printf("%c", va_arg(c, int)); }
 /**
- * put_int - print int
+ * put_int - print int.
  * @c: int
  */
-void put_int(int c) {printf("%d", c);}
+void put_int(va_list c) {printf("%d", va_arg(c, int)); }
 /**
- * put_int - print int
- * @c: int
+ * put_float - print float.
+ * @c: float
  */
-void put_float(float c) {printf("%f", c);}
+void put_float(va_list c) {printf("%f", va_arg(c, double)); }
 /**
- * put_int - print int
- * @c: int
+ * put_str - print str.
+ * @c: str
  */
-void put_str(char *c)
+void put_str(va_list c)
 {
-	(c) ? printf("%s", c) : printf("(nil)");
-}
+	char *str;
 
+	str = va_arg(c, char *);
+	if (str)
+		printf("%s", str);
+	else
+	 printf("(nil)");
+}
 /**
- * print_strings - print str.
- * @separator: string to be printed between str.
- * @n: nbr of parms.
+ * print_all - print all Typo.
+ * @format:type of args
  *
- * Description: function that prints strings, followed by a new line.
+ * Description: function that prints all type, followed by a new line.
  */
 
-void print_strings(const char *separator, const unsigned int n, ...)
+
+void print_all(const char * const format, ...)
 {
 	unsigned int i;
+	unsigned int j;
 	va_list ap_arg;
-	char *str;
-	ops_t ops[] = {
-		{"c", (void *)put_char},
-		{"i", (void *)put_int},
-		{"f", (void *)put_float},
-		{"s", (void *)put_str},
-		{NULL, NULL}
+	op_t tmp[] = {
+		{'c', put_char},
+		{'i', put_int},
+		{'f', put_float},
+		{'s', put_str},
+		{0, NULL}
 	};
 
-	if (n > 0 && separator)
+	va_start(ap_arg, format);
+	i = -1;
+	while (format[++i] && format)
 	{
-		va_start(ap_arg, n);
-		for (i = 0; i < n; i++)
+		j = -1;
+		while (++j < 4)
 		{
-			str = va_arg(ap_arg, char *);
-			(str) ? printf("%s", str) : printf("(nil)");
-			if (i < n - 1)
-				printf("%s", separator);
+			if (format[i] == tmp[j].typo)
+			{
+				tmp[j].fprint(ap_arg);
+				if (format[i + 1])
+					printf(", ");
+			}
 		}
-		printf("\n");
-		va_end(ap_arg);
 	}
+	va_end(ap_arg);
+	printf("\n");
 }
