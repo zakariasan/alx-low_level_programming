@@ -17,7 +17,7 @@ void put_int(va_list c) {printf("%d", va_arg(c, int)); }
  * put_float - print float.
  * @c: float
  */
-void put_float(va_list c) {printf("%f ", va_arg(c, double)); }
+void put_float(va_list c) {printf("%f", va_arg(c, double)); }
 
 /**
  * put_str - print str.
@@ -46,10 +46,10 @@ void print_all(const char * const format, ...)
 	char *sp;
 	va_list ap_arg;
 	op_t tmp[] = {
-		{'c', put_char},
-		{'i', put_int},
-		{'f', put_float},
-		{'s', put_str},
+		{"c", put_char},
+		{"i", put_int},
+		{"f", put_float},
+		{"s", put_str},
 	};
 
 	va_start(ap_arg, format);
@@ -60,10 +60,10 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (j < 4)
 		{
-			if (format[i] == tmp[j].typo)
+			if (format[i] == *tmp[j].typo)
 			{
 				printf("%s", sp);
-				tmp[j].fprint(ap_arg);
+				tmp[j].fp(ap_arg);
 				sp = ", ";
 			}
 			j++;
