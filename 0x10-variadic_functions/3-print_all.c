@@ -54,7 +54,7 @@ void print_all(const char * const format, ...)
 	va_start(ap_arg, format);
 	i = -1;
 	sp = "";
-	while (format[++i])
+	while (format && format[++i])
 	{
 		j = -1;
 		while (++j <= 3)
