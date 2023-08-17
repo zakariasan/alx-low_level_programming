@@ -17,7 +17,7 @@ void put_int(va_list c) {printf("%d", va_arg(c, int)); }
  * put_float - print float.
  * @c: float
  */
-void put_float(va_list c) {printf("%f", va_arg(c, double)); }
+void put_float(va_list c) {printf("%f ", va_arg(c, double)); }
 
 /**
  * put_str - print str.
