@@ -10,7 +10,7 @@ void put_char(va_list c) {printf("%c", va_arg(c, int)); }
  * put_int - print int.
  * @c: int
  */
-void put_int(va_list c) {printf("%d", va_arg(c, int)); }
+void put_int(va_list c) {printf("%d1", va_arg(c, int)); }
 /**
  * put_float - print float.
  * @c: float
@@ -25,7 +25,7 @@ void put_str(va_list c)
 	char *str;
 
 	str = va_arg(c, char *);
-	printf("%s", str ? str : "(nil");
+	printf("%s", str ? str : "(nil)");
 }
 /**
  * print_all - print all Typo.
