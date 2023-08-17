@@ -5,7 +5,7 @@
  * put_char - print char.
  * @c: char
  */
-void put_char(va_list c) {printf("%c", va_arg(c, int)); }
+void put_char(va_list c) {printf("%c ", va_arg(c, int)); }
 /**
  * put_int - print int.
  * @c: int
