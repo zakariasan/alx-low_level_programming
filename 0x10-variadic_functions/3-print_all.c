@@ -5,7 +5,7 @@
  * put_char - print char.
  * @c: char
  */
-void put_char(va_list c) {printf("%c ", va_arg(c, int)); }
+void put_char(va_list c) {printf("%c", va_arg(c, int)); }
 /**
  * put_int - print int.
  * @c: int
@@ -48,9 +48,9 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(ap_arg, format);
-	i = -1;
+	i = 0;
 	sp = "";
-	while (format[++i] && format)
+	while (format[i] && format)
 	{
 		j = -1;
 		while (++j < 4)
@@ -62,6 +62,7 @@ void print_all(const char * const format, ...)
 				sp = ", ";
 			}
 		}
+		i++;
 	}
 	va_end(ap_arg);
 	printf("\n");
