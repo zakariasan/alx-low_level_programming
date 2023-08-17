@@ -10,7 +10,7 @@
  */
 typedef struct ops
 {
-	char *typo;
+	char typo;
 	void (*fp)(va_list);
 }		op_t;
 

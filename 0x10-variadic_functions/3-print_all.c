@@ -45,29 +45,27 @@ void print_all(const char * const format, ...)
 	char *sp;
 	va_list ap_arg;
 	op_t tmp[] = {
-		{"c", put_char},
-		{"i", put_int},
-		{"f", put_float},
-		{"s", put_str},
+		{'c', put_char},
+		{'i', put_int},
+		{'f', put_float},
+		{'s', put_str},
 	};
 
 	va_start(ap_arg, format);
-	i = 0;
+	i = -1;
 	sp = "";
-	while (format[i] && format)
+	while (format[++i] && format)
 	{
-		j = 0;
-		while (j < 4)
+		j = -1;
+		while (++j < 3)
 		{
-			if (format[i] == *tmp[j].typo)
+			if (format[i] == tmp[j].typo)
 			{
 				printf("%s", sp);
 				tmp[j].fp(ap_arg);
 				sp = ", ";
 			}
-			j++;
 		}
-		i++;
 	}
 	va_end(ap_arg);
 	printf("\n");
