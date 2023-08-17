@@ -10,7 +10,7 @@ void put_char(va_list c) {printf("%c", va_arg(c, int)); }
  * put_int - print int.
  * @c: int
  */
-void put_int(va_list c) {printf("%d1", va_arg(c, int)); }
+void put_int(va_list c) {printf("%d", va_arg(c, int)); }
 /**
  * put_float - print float.
  * @c: float
