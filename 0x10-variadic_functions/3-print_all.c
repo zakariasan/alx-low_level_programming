@@ -25,10 +25,7 @@ void put_str(va_list c)
 	char *str;
 
 	str = va_arg(c, char *);
-	if (str)
-		printf("%s", str);
-	else
-	 printf("(nil)");
+	printf("%s", str);
 }
 /**
  * print_all - print all Typo.
@@ -36,8 +33,6 @@ void put_str(va_list c)
  *
  * Description: function that prints all type, followed by a new line.
  */
-
-
 void print_all(const char * const format, ...)
 {
 	unsigned int i;

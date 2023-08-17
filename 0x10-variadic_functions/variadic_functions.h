@@ -6,8 +6,8 @@
 /**
  * struct op - Struct op
  *
- * @op: The operator
- * @f: The function associated
+ * @typo: The format type
+ * @fprint: The function associated to print data
  */
 typedef struct op
 {
