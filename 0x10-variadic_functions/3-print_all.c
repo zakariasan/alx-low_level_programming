@@ -52,8 +52,8 @@ void print_all(const char * const format, ...)
 	sp = "";
 	while (format[i] && format)
 	{
-		j = -1;
-		while (++j < 4)
+		j = 0;
+		while (j < 4)
 		{
 			if (format[i] == tmp[j].typo)
 			{
@@ -61,6 +61,7 @@ void print_all(const char * const format, ...)
 				tmp[j].fprint(ap_arg);
 				sp = ", ";
 			}
+			j++;
 		}
 		i++;
 	}
