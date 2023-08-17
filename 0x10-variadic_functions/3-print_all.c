@@ -23,9 +23,11 @@ void put_float(va_list c) {printf("%f", va_arg(c, double)); }
 void put_str(va_list c)
 {
 	char *str;
+	char *data;
 
 	str = va_arg(c, char *);
-	printf("%s", str);
+	data = str ? "%s" : "(nil)";
+	printf(data, str);
 }
 /**
  * print_all - print all Typo.
