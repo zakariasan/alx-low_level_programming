@@ -57,7 +57,7 @@ void print_all(const char * const format, ...)
 	while (format[++i] && format)
 	{
 		j = -1;
-		while (++j < 3)
+		while (++j <= 3)
 		{
 			if (format[i] == tmp[j].typo)
 			{
