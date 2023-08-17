@@ -2,7 +2,6 @@
 #define _VARIADIC_FUNC_H_
 
 #include <stdarg.h>
-
 /**
  * struct op - Struct op
  *
