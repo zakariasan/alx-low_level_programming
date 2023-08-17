@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
 #include <stdio.h>
 /**
  * put_char - print char.
