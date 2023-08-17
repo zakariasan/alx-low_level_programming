@@ -25,7 +25,7 @@ void put_str(va_list c)
 	char *str;
 
 	str = va_arg(c, char *);
-	printf("%s", str ? str : "(nil)");
+	printf("%s", (str != NULL) ? str : "(nil)");
 }
 /**
  * print_all - print all Typo.
