@@ -37,6 +37,7 @@ void print_all(const char * const format, ...)
 {
 	unsigned int i;
 	unsigned int j;
+	char *sp;
 	va_list ap_arg;
 	op_t tmp[] = {
 		{'c', put_char},
@@ -48,6 +49,7 @@ void print_all(const char * const format, ...)
 
 	va_start(ap_arg, format);
 	i = -1;
+	sp = "";
 	while (format[++i] && format)
 	{
 		j = -1;
@@ -55,11 +57,12 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == tmp[j].typo)
 			{
+				printf("%s", sp);
 				tmp[j].fprint(ap_arg);
-				if (format[i + 1])
-					printf(", ");
+				sp = ", ";
 			}
 		}
 	}
+	va_end(ap_arg);
 	printf("\n");
 }
