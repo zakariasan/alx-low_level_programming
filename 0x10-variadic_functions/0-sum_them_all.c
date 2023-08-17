@@ -3,6 +3,7 @@
 /**
  * sum_them_all - sum of params.
  * @n: nbr of parms.
+ * @...: var args
  *
  * Description:function that returns the sum of all its parameters.
  * Return: sum of 0.
