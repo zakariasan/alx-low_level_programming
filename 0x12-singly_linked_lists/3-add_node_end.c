@@ -20,7 +20,7 @@ size_t _strlen(const char *str)
 }
 
 /**
- * add_node - add Node.
+ * add_node_end - add Node.
  * @head: head node
  * @str: data string to add.
  *
@@ -45,7 +45,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		*head = tmp_lst;
 	else
 	{
-		while(lst->next)
+		while (lst->next)
 			lst = lst->next;
 		lst->next = tmp_lst;
 	}
