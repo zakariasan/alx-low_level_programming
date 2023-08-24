@@ -1,9 +1,9 @@
-global _start
+global main
 section .data
 	my_str db "Hello, Holberton", 0x0a
 	len equ $ - my_str
 section .text
-_start:
+main:
 	mov eax,4
 	mov ebx,1
 	mov ecx, my_str
