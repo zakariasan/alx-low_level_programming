@@ -2,7 +2,6 @@
 
 /**
  * hare - fast and.
- * @head: head node
  *
  * Description:function arrive first before main.
  */
