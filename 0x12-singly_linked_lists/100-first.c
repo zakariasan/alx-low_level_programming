@@ -6,7 +6,7 @@
  *
  * Description:function arrive first before main.
  */
-void hare() __attribute__((constructor));
+void hare(void) __attribute__((constructor));
 
 void hare(void)
 {
