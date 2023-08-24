@@ -1,6 +1,6 @@
 global main
 section .data
-	my_str db "Hello, Holberton", 0x0a
+	my_str db "Hello, Holberton\n", 0x0a
 	len equ $ - my_str
 section .text
 main:
