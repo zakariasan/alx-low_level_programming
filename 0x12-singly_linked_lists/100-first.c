@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * hare - fast and.
@@ -6,10 +7,10 @@
  *
  * Description:function arrive first before main.
  */
-void hare(void) __attribute__((constructor));
+void hare() __attribute__((constructor));
 
 void hare(void)
 {
-	write(1, "You're beat! and yet, you must allow,\nI bore my house upon \
-			my back!\n", 69);
+	printf("You're beat! and yet, you must allow,\nI bore my house upon \
+			my back!\n");
 }
