@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
- * print_list - print linked lists
+ * print_listint - print linked lists
  * @h: head node
  *
  * Description: function that prints all the elements of a list.
- * Return: nbr of Nodes or NULL
+ * Return: nbr of Nodes or 0
  */
 
 size_t print_listint(const listint_t *h)
