@@ -20,18 +20,19 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	lst = *head;
 
 	tmp_lst = malloc(sizeof(listint_t));
-	if (lst && tmp_lst)
+	if (tmp_lst)
 	{
 		tmp_lst->n = n;
 		tmp_lst->next = NULL;
+		if (idx == 0)
+		{
+			tmp_lst->next = lst;
+			*head = tmp_lst;
+			return (tmp_lst);
+		}
 		while (lst)
 		{
-			if (idx == 0)
-			{
-				tmp_lst->next = lst;
-				*head = tmp_lst;
-				return (tmp_lst);
-			}
+
 			if ((count + 1) == idx)
 			{
 				tmp_lst->next = lst->next;
