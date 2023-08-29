@@ -20,12 +20,14 @@ size_t free_listint_safe(listint_t **h)
 		{
 			tmp_lst = (*h)->next;
 			free(*h);
+			*h = NULL;
 			cnt++;
 			*h = tmp_lst;
 		}
 		else
 		{
 			cnt++;
+			*h = NULL;
 			return (cnt);
 		}
 	}
