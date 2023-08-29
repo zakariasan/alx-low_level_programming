@@ -19,7 +19,6 @@ size_t free_listint_safe(listint_t **h)
 		if ((*h - (*h)->next) > 0)
 		{
 			tmp_lst = (*h)->next;
-			free(*h);
 			*h = NULL;
 			cnt++;
 			*h = tmp_lst;
