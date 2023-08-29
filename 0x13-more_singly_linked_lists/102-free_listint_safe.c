@@ -14,7 +14,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t cnt;
 
 	cnt = 0;
-	while (*h && h)
+	while (*h)
 	{
 		tmp_lst = (*h)->next;
 		free(*h);
