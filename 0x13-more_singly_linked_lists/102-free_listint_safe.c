@@ -23,6 +23,12 @@ size_t free_listint_safe(listint_t **h)
 			*h = tmp_lst;
 			cnt++;
 		}
+		else
+		{
+			free(*h);
+			cnt++;
+			return (cnt);
+		}
 		free(*h);
 	}
 	return (cnt);
