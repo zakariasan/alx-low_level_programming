@@ -31,11 +31,11 @@ unsigned int binary_to_uint(const char *b)
 	nbr = 0;
 	i = -1;
 	j = 0;
-	while (b[++i] && b)
+	while (b && b[++i])
 		if (b[i] != '0' && b[i] != '1')
 			return (nbr);
 
-	while (--i >= 0 && b)
+	while (b && --i >= 0)
 	{
 		(b[i] == '1') ? (nbr += _pow(j)) : (nbr);
 		j++;
