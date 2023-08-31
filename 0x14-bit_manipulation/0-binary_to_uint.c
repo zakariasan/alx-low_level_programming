@@ -35,7 +35,7 @@ unsigned int binary_to_uint(const char *b)
 		if (b[i] != '0' && b[i] != '1')
 			return (nbr);
 
-	while (--i >= 0)
+	while (--i >= 0 && b[i])
 	{
 		(b[i] == '1') ? (nbr += _pow(j)) : (nbr);
 		j++;
