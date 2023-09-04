@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <unistd.h>
 /**
 * _strlen - that returns the length of a string.
@@ -61,15 +62,23 @@ int main(int ac, char **av)
 		_fprint(STDERR_FILENO, "Error: Can't write to", av[2]);
 		exit(99);
 	}
-	while (read(from, bf, 1024))
-	{
+	while (read(from, bf, 1024) > 0)
 		if (write(to, bf, 1024) < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to", av[2]);
 			exit(99);
 		}
+	from = close(from);
+	if (from < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
+		exit(100);
 	}
-	close(from);
-	close(to);
+	to = close(to);
+	if (to < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
+		exit(100);
+	}
 	return (0);
 }
