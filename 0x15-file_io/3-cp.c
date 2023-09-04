@@ -56,11 +56,12 @@ int main(int ac, char **av)
 		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
 		exit(98);
 	}
-	to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	while ((size = read(from, bf, 1024)) > 0)
 		if (write(to, bf, size) < 0 || to < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
+			close(from);
 			exit(99);
 		}
 	if (size < 0)
