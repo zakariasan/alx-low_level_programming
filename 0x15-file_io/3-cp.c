@@ -58,7 +58,7 @@ int main(int ac, char **av)
 	}
 	to = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 00664);
 	while ((size = read(from, bf, 1024)) > 0)
-		if (write(to, bf, size) != size || to < 0)
+		if (to < 0 || write(to, bf, size) < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
 			exit(99);
