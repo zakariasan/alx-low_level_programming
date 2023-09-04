@@ -22,14 +22,13 @@ size_t read_textfile(const char *filename, size_t letters)
 		return (res);
 	fd = open(filename, O_RDONLY);
 	res = read(fd, bf, letters);
-	if (fd > 0 && res >= 0)
-	{
-		bf[letters] = 0;
-		if (write(STDOUT_FILENO, bf, letters) < 0)
-			res = 0;
-		if (close(fd) < 0)
-			res = 0;
-		free(bf);
-	}
+	if (fd < 0 || res < 0)
+		res = 0;
+	bf[letters] = 0;
+	if (write(STDOUT_FILENO, bf, letters) < 0)
+		res = 0;
+	if (close(fd) < 0)
+		res = 0;
+	free(bf);
 	return (res);
 }
