@@ -51,17 +51,16 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	from = open(av[1], O_RDONLY);
-	to = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 00664);
 	if (from < 0)
 	{
 		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
 		exit(98);
 	}
+	to = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 00664);
 	while ((from = read(from, bf, 1024)) > 0)
-		if (write(to, bf, 1024) != from || to < 0)
+		if (write(to, bf, from) != from || to < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
-			close(from);
 			exit(99);
 		}
 	if (from < 0)
