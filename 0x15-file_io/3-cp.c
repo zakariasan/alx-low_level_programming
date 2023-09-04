@@ -47,7 +47,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 29);
 		exit(97);
 	}
 	from = open(av[1], O_RDONLY);
@@ -58,7 +58,7 @@ int main(int ac, char **av)
 	}
 	to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	while ((size = read(from, bf, 1024)) > 0)
-		if (write(to, bf, size) < 0 || to < 0)
+		if (to < 0 || write(to, bf, size) < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
 			exit(99);
