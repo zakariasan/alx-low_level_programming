@@ -1,45 +1,30 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _pow - helper to calculate pow 2 digits.
- * @j: digit position.
+ * read_textfile - readme in txt file.
+ * @filename: filename.
+ * @letters: size.
  *
- * Description:  function that help to converts a binary number to an uInt.
- * Return: 0 or nbr.
+ * Description: function that reads a text file and prints it to theSTDOUT.
+ * Return: 0 or nbr of letters.
  */
 
-unsigned int _pow(int j)
+size_t read_textfile(const char *filename, size_t letters)
 {
-	if (j == 0)
-		return (1);
-	return (2 * _pow(j - 1));
-}
-/**
- * binary_to_uint - binary string to int nbr.
- * @b: binary string.
- *
- * Description:  function that converts a binary number to an uInt.
- * Return: 0 or nbr.
- */
+	int fd;
+	char *bf;
+	int res;
 
-unsigned int binary_to_uint(const char *b)
-{
-	unsigned int nbr;
-	int i;
-	int j;
-
-	nbr = 0;
-	i = -1;
-	j = 0;
-	while (b && b[++i])
-		if (b[i] != '0' && b[i] != '1')
-			return (nbr);
-
-	while (b && --i >= 0)
+	res = 0;
+	bf = malloc(sizeof(char) * letters + 1);
+	fd = open(filename, O_RDONLY);
+	if (fd > 0)
 	{
-		(b[i] == '1') ? (nbr += _pow(j)) : (nbr);
-		j++;
+		res = read(fd, bf, letters);
+		bf[letters] = 0;
+		write(STDOUT_FILENO, bf, letters);
+		free(bf);
 	}
-
-	return (nbr);
+	return (res);
 }
