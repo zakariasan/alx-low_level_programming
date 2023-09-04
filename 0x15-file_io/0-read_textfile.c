@@ -27,10 +27,10 @@ size_t read_textfile(const char *filename, size_t letters)
 	if (res < 0)
 		return (0);
 	bf[letters] = 0;
+	close(fd);
 	res = write(STDOUT_FILENO, bf, letters);
 	if (res < 0)
 		return (0);
-	close(fd);
 	free(bf);
 	return (res);
 }
