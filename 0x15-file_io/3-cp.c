@@ -61,6 +61,7 @@ int main(int ac, char **av)
 		if (write(to, bf, size) < 0 || to < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
+			close(from);
 			exit(99);
 		}
 	if (size < 0)
