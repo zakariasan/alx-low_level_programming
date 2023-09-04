@@ -58,10 +58,9 @@ int main(int ac, char **av)
 	}
 	to = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 00664);
 	while ((size = read(from, bf, 1024)) > 0)
-		if (write(to, bf, size) < 0 || to < 0)
+		if (write(to, bf, size) != size || to < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
-			close(from);
 			exit(99);
 		}
 	if (size < 0)
@@ -70,12 +69,12 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	from = close(from);
+	to = close(to);
 	if (from < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
 	}
-	to = close(to);
 	if (to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
