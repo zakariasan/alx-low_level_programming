@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <unistd.h>
+
 /**
 * _strlen - that returns the length of a string.
 * @s: string in.
@@ -54,18 +55,18 @@ int main(int ac, char **av)
 	to = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 00664);
 	if (from < 0)
 	{
-		_fprint(STDERR_FILENO, "Error: Can't read from file", av[1]);
+		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
 		exit(98);
 	}
 	if (to < 0)
 	{
-		_fprint(STDERR_FILENO, "Error: Can't write to", av[2]);
+		_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
 		exit(99);
 	}
 	while (read(from, bf, 1024) > 0)
 		if (write(to, bf, 1024) < 0)
 		{
-			_fprint(STDERR_FILENO, "Error: Can't write to", av[2]);
+			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
 			exit(99);
 		}
 	from = close(from);
