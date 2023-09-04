@@ -57,15 +57,19 @@ int main(int ac, char **av)
 		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
 		exit(98);
 	}
-	while (read(from, bf, 1024) > 0)
-		if (write(to, bf, 1024) < 0 || to < 0)
+	while ((from = read(from, bf, 1024)) > 0)
+		if (write(to, bf, 1024) != from || to < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
 			close(from);
 			exit(99);
 		}
-	from = close(from);
 	if (from < 0)
+	{
+		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
+		exit(98);
+	}
+	if ((close(from)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
