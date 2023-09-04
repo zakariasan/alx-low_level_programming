@@ -42,8 +42,7 @@ void _fprint(int fd, char *s, char *file)
  */
 int main(int ac, char **av)
 {
-	int from;
-	int to;
+	int from, to;
 	char bf[1024];
 
 	if (ac != 3)
@@ -58,15 +57,11 @@ int main(int ac, char **av)
 		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
 		exit(98);
 	}
-	if (to < 0)
-	{
-		_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
-		exit(99);
-	}
 	while (read(from, bf, 1024) > 0)
-		if (write(to, bf, 1024) < 0)
+		if (write(to, bf, 1024) < 0 || to < 0)
 		{
 			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
+			close(from);
 			exit(99);
 		}
 	from = close(from);
