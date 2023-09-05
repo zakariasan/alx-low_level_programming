@@ -12,7 +12,7 @@
 void prt_osiAbi(int nbr)
 {
 	char *bf[] = {"UNIX - System V\n", "UNIX - HP-UX\n", "UNIX - NetBSD\n",
-	"UNIX - Linux\n", "UNIX - Solaris\n", "UNIX - IRIX\n",
+	"UNIX - GNU\n", "UNIX - Solaris\n", "UNIX - IRIX\n",
 	"UNIX - FreeBSD\n", "UNIX - TRU64\n", "ARM\n", "Standalone App\n"};
 
 	printf("%s", bf[nbr]);
@@ -74,7 +74,7 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
+		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", av[0]);
 		exit(98);
 	}
 	fd = open(av[1], O_RDONLY);
