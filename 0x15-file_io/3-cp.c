@@ -47,25 +47,27 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 29);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	from = open(av[1], O_RDONLY);
-	to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 00664);
 	if (from < 0)
 	{
-		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
+	to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	while ((size = read(from, bf, 1024)) > 0)
-		if (to < 0 || write(to, bf, size) < 0)
+	{
+		if (to < 0 || write(to, bf, size) != size)
 		{
-			_fprint(STDERR_FILENO, "Error: Can't write to ", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
+	}
 	if (size < 0)
 	{
-		_fprint(STDERR_FILENO, "Error: Can't read from file ", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	if (close(from) < 0)
