@@ -60,10 +60,11 @@ void print_Elf(Elf64_Ehdr *hd)
 	entry = hd->e_entry;
 	if (hd->e_ident[5] != 1)
 	{
-		for (i = 0; i < 4; i++)
-			entry = (entry << 8) | ((entry >> (i * 8)) & 0xFF);
+		entry = ((entry << 8) & 0xFF00FF00) |
+			((entry >> 8) & 0xFF00FF00);
+		entry = (entry << 16) | (entry >> 16);
 	}
-	printf("  Entry point address:               %#lx\n", (unsigned long)
+	printf("  Entry point address:               %#x\n", (unsigned int)
 			entry);
 }
 
