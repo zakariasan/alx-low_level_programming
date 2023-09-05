@@ -2,37 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-/**
-* _strlen - that returns the length of a string.
-* @s: string in.
-*
-* Description: function that returns the length of a string.
-* Return: the length of String s or 0
-*/
-int _strlen(char *s)
-{
-	int i;
 
-	i = 0;
-	while (*s++)
-		i++;
-	return (i);
-}
-
-/**
-* _fprint - that returns Err msg.
-* @fd: file desc.
-* @s: error str.
-* @file: file name.
-*
-* Description: function that returns the length of a string.
-*/
-void _fprint(int fd, char *s, char *file)
-{
-	write(fd, s, _strlen(s));
-	write(fd, file, _strlen(file));
-	write(fd, "\n", 1);
-}
 /**
  * main - check the code
  * @ac: arg nbr.
