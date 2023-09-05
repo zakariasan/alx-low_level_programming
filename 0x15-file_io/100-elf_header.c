@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -23,7 +24,7 @@ void prt_osiAbi(int nbr)
  */
 void prt_tp(int nbr)
 {
-	char *bf[] = {"NONE (None)\n", "REL (Relocatable file)\n",
+	char *bf[] = {"NONE (Unknown type)\n", "REL (Relocatable file)\n",
 	"EXEC (Executable file)\n", "DYN (Shared object file)\n",
 	"CORE (Core file)\n"};
 
@@ -36,6 +37,7 @@ void prt_tp(int nbr)
 void print_Elf(Elf64_Ehdr *hd)
 {
 	int i;
+	unsigned long int entry;
 
 	i = -1;
 	printf("ELF Header:\n");
@@ -55,8 +57,14 @@ void print_Elf(Elf64_Ehdr *hd)
 	printf("  ABI Version:                       %u\n", hd->e_ident[8]);
 	printf("  Type:                              ");
 	prt_tp(hd->e_type);
-	printf("  Entry point address:               0x%lx\n", (unsigned long)
-			hd->e_entry);
+	entry = hd->e_entry;
+	if (hd->e_ident[5] != 1)
+	{
+		for (i = 0; i < 4; i++)
+			entry = (entry << 8) | ((entry >> (i * 8)) & 0xFF);
+	}
+	printf("  Entry point address:               %#lx\n", (unsigned long)
+			entry);
 }
 
 /**
