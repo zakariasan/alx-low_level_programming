@@ -37,7 +37,6 @@ void prt_tp(int nbr)
 void print_Elf(Elf64_Ehdr *hd)
 {
 	int i;
-	unsigned long int entry;
 
 	i = -1;
 	printf("ELF Header:\n");
@@ -57,15 +56,8 @@ void print_Elf(Elf64_Ehdr *hd)
 	printf("  ABI Version:                       %u\n", hd->e_ident[8]);
 	printf("  Type:                              ");
 	prt_tp(hd->e_type);
-	entry = hd->e_entry;
-	if (hd->e_ident[5] != 1)
-	{
-		entry = ((entry << 8) & 0xFF00FF00) |
-			((entry >> 8) & 0xFF00FF00);
-		entry = (entry << 16) | (entry >> 16);
-	}
 	printf("  Entry point address:               %#x\n", (unsigned int)
-			entry);
+			hd->e_entry);
 }
 
 /**
