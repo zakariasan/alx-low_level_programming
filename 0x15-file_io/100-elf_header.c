@@ -15,7 +15,7 @@ void print_Elf(Elf64_Ehdr *hd)
 	i = -1;
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
-	while (++i < 4)
+	while (++i < 16)
 		printf("%02x ", hd->e_ident[i]);
 	printf("\n");
 	printf("  Class:                             %s\n", hd->e_ident[4] ==
