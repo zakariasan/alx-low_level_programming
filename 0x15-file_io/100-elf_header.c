@@ -12,7 +12,7 @@
 void prt_osiAbi(int nbr)
 {
 	char *bf[] = {"UNIX - System V\n", "UNIX - HP-UX\n", "UNIX - NetBSD\n",
-	"UNIX - GNU\n", "UNIX - Solaris\n", "UNIX - IRIX\n",
+	"UNIX - Linux\n", "UNIX - Solaris\n", "UNIX - IRIX\n",
 	"UNIX - FreeBSD\n", "UNIX - TRU64\n", "ARM\n", "Standalone App\n"};
 
 	printf("%s", bf[nbr]);
@@ -45,9 +45,10 @@ void print_Elf(Elf64_Ehdr *hd)
 		printf("%02x ", hd->e_ident[i]);
 	printf("\n");
 	printf("  Class:                             %s\n", hd->e_ident[4] ==
-			1 ? "ELF32" : "ELF64");
+			0 ? "none" : hd->e_ident[4] == 1 ? "ELF32" : "ELF64");
 	printf("  Data:                              %s\n", hd->e_ident[5] ==
-			1 ? "2's complement, little endian" :
+			0 ? "none" : hd->e_ident[5] == 1 ?
+			"2's complement, little endian" :
 			"2's complement, big endian");
 	printf("  Version:                           %u (current)\n",
 			hd->e_ident[6]);
