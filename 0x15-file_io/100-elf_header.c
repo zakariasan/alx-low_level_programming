@@ -74,12 +74,15 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s elf-file(s)\n", av[0]);
+		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
 	fd = open(av[1], O_RDONLY);
 	if (fd < -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't open from file\n");
 		return (98);
+	}
 	if (read(fd, &hd, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 		return (98);
 	if (!(hd.e_ident[0] == 127 && hd.e_ident[1] == 'E' && hd.e_ident[2] ==
