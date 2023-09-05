@@ -5,6 +5,31 @@
 #include <elf.h>
 
 /**
+ * prt_osiAbi - print os/ABI str.
+ * @nbr: ELF header heade->e_ident[7]
+ */
+void prt_osiAbi(int nbr)
+{
+	char *bf[] = {"UNIX - System V\n", "UNIX - HP-UX\n", "UNIX - NetBSD\n",
+	"UNIX - Linux\n", "UNIX - Solaris\n", "UNIX - IRIX\n",
+	"UNIX - FreeBSD\n", "UNIX - TRU64\n", "ARM\n", "Standalone App\n"};
+
+	printf("%s", bf[nbr]);
+}
+
+/**
+ * prt_tp - print type str.
+ * @nbr: ELF header nbr.
+ */
+void prt_tp(int nbr)
+{
+	char *bf[] = {"NONE (None)\n", "REL (Relocatable file)\n",
+	"EXEC (Executable file)\n", "DYN (Shared object file)\n",
+	"CORE (Core file)\n"};
+
+	printf("%s", bf[nbr]);
+}
+/**
  * print_Elf - print ELF files
  * @hd: ELF header.
  */
@@ -25,9 +50,11 @@ void print_Elf(Elf64_Ehdr *hd)
 			"2's complement, big endian");
 	printf("  Version:                           %u (current)\n",
 			hd->e_ident[6]);
-	printf("  OS/ABI:                            %u\n", hd->e_ident[7]);
+	printf("  OS/ABI:                            ");
+	prt_osiAbi(hd->e_ident[7]);
 	printf("  ABI Version:                       %u\n", hd->e_ident[8]);
-	printf("  Type:                              %u\n", hd->e_type);
+	printf("  Type:                              ");
+	prt_tp(hd->e_type);
 	printf("  Entry point address:               0x%lx\n", (unsigned long)
 			hd->e_entry);
 }
