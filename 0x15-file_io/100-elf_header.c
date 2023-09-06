@@ -79,16 +79,27 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	fd = open(av[1], O_RDONLY);
-	if (fd < -1)
+	if (fd < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't open from file\n");
+		dprintf(STDERR_FILENO, "Error: Can't open from file %s\n",
+				av[1]);
 		return (98);
 	}
 	if (read(fd, &hd, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+				av[1]);
+		close(fd);
 		return (98);
+	}
 	if (!(hd.e_ident[0] == 127 && hd.e_ident[1] == 'E' && hd.e_ident[2] ==
 				'L' && hd.e_ident[3] == 'F'))
+	{
+		dprintf(STDERR_FILENO, "Error: %s is not an ordinary file",
+				av[1]);
+		close(fd);
 		return (98);
+	}
 	print_Elf(&hd);
 	close(fd);
 	return (0);
