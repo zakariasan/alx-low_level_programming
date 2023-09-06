@@ -41,20 +41,24 @@ void print_Elf(Elf64_Ehdr *hd)
 	i = -1;
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
-	while (++i < 16)
+	while (++i < EI_NIDENT)
 		printf("%02x ", hd->e_ident[i]);
 	printf("\n");
-	printf("  Class:                             %s\n", hd->e_ident[4] ==
-			0 ? "none" : hd->e_ident[4] == 1 ? "ELF32" : "ELF64");
-	printf("  Data:                              %s\n", hd->e_ident[5] ==
-			0 ? "none" : hd->e_ident[5] == 1 ?
+	printf("  Class:                             %s\n",
+			hd->e_ident[EI_CLASS] == 0 ? "none" :
+			hd->e_ident[EI_CLASS] == 1 ? "ELF32" :
+			"ELF64");
+	printf("  Data:                              %s\n",
+			hd->e_ident[EI_DATA] == 0 ? "none" :
+			hd->e_ident[EI_DATA] == 1 ?
 			"2's complement, little endian" :
 			"2's complement, big endian");
 	printf("  Version:                           %u (current)\n",
-			hd->e_ident[6]);
+			hd->e_ident[EI_VERSION]);
 	printf("  OS/ABI:                            ");
-	prt_osiAbi(hd->e_ident[7]);
-	printf("  ABI Version:                       %u\n", hd->e_ident[8]);
+	prt_osiAbi(hd->e_ident[EI_OSABI]);
+	printf("  ABI Version:                       %u\n",
+			hd->e_ident[EI_ABIVERSION]);
 	printf("  Type:                              ");
 	prt_tp(hd->e_type);
 	printf("  Entry point address:               %#x\n", (unsigned int)
