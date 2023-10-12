@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * add_dnodeint - add new node at the end of dlInked list
+ * add_dnodeint_end - add new node at the end of dlInked list
  * @head: head.
  * @n: nbr
  *
