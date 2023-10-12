@@ -1,13 +1,13 @@
 #include "lists.h"
 
 /**
- * print_dlistint - print dlinked list.
+ * dlistint_len - size of dLlist
  * @h: head.
  *
  * Description: function that prints all the elements of a dLinked List.
  * Return: nbr of nodes.
  */
-size_t print_dlistint(const dlistint_t *h)
+size_t dlistint_len(const dlistint_t *h)
 {
 	size_t size;
 
@@ -16,7 +16,6 @@ size_t print_dlistint(const dlistint_t *h)
 	{
 		while (h)
 		{
-			printf("%d\n", h->n);
 			size++;
 			h = h->next;
 		}
@@ -25,7 +24,6 @@ size_t print_dlistint(const dlistint_t *h)
 	{
 		while (h)
 		{
-			printf("%d\n", h->n);
 			size++;
 			h = h->prev;
 		}
