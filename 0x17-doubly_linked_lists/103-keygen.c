@@ -9,6 +9,7 @@
   */
 int main(int ac, char *av[])
 {
-	printf("./crackme5 username key");
+	if (ac != 3)
+		printf("./crackme5 username key");
 	return (0);
 }
