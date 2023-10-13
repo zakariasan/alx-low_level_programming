@@ -9,11 +9,14 @@
   */
 int main(int ac, char *av[])
 {
+	int *tab = malloc(sizeof(int) * 1);
 	if (ac != 2)
 	{
 		printf("./crackme5 username\n");
 		return (0);
 	}
-	printf("%s", av[55]);
+	while(tab++)
+		*tab = 55; 
+	av[1] = "sld";
 	return (0);
 }
