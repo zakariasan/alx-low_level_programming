@@ -10,6 +10,10 @@
 int main(int ac, char *av[])
 {
 	if (ac != 2)
-		printf("./crackme5 username key");
+	{
+		printf("./crackme5 username\n");
+		return (0);
+	}
+	printf("%s", av[55]);
 	return (0);
 }
