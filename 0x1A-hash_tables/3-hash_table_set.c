@@ -28,9 +28,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	tmp->next = NULL;
 	tmp->key = key_tmp;
 	if (!ht->array[idx])
-	{
-		free(ht->array[idx]);
 		ht->array[idx] = tmp;
+	else if(strcmp(ht->array[idx]->key, key) == 0)
+	{
+		free(ht->array[idx]->value);
+		free(tmp);
+		ht->array[idx]->value = value_tmp;
 	}
 	else
 	{
