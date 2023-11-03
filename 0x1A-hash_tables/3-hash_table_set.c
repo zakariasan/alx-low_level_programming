@@ -16,12 +16,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *tmp;
 	char *key_tmp, *value_tmp;
 
-	if (strlen(key) == 0 || !ht)
+	if (strlen(key) == 0 || !ht || *value == '\n')
 		return (0);
 	key_tmp = strdup(key);
 	value_tmp = strdup(value);
 	idx = key_index((unsigned char *)key_tmp, ht->size);
-
 	tmp = ht->array[idx];
 	if (!tmp)
 	{
