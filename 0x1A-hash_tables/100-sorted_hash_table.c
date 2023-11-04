@@ -113,7 +113,6 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 /**
  * shash_table_print- print key to hash
  * @ht: hash shash_table_
- * @key: key of hash info
  *
  * Return: NULL or value
  */
