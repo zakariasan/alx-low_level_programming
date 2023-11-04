@@ -95,11 +95,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 	shash_node_t *tmp;
-	unsigned long int idx;
 
 		if (!ht || strlen(key) == 0)
 		return (NULL);
-	idx = key_index((unsigned char *)key, ht->size);
 	tmp = ht->shead;
 	while (tmp)
 	{
