@@ -74,25 +74,66 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->shead = tmp_1;
 		ht->stail = tmp_1;
 	}
-	else if (strcmp(ht->shead->key, key) > 0)
-	{
-		tmp_1->sprev = NULL;
-		tmp_1->snext = ht->shead;
-		ht->shead->sprev = tmp_1;
-		ht->shead = tmp_1;
-	}
 	else
 	{
 		tmp = ht->shead;
-		while (tmp->snext && strcmp(tmp->snext->key, key) <0)
+		while (tmp->snext && strcmp(tmp->snext->key, key) < 0)
 			tmp = tmp->snext;
 		tmp_1->sprev = tmp;
 		tmp_1->snext = tmp->snext;
-		if (!tmp->snext)
-			ht->stail = tmp_1;
-		else
-			tmp->snext->sprev = tmp_1;
-		tmp->snext = tmp_1;
 	}
 	return (1);
+}
+
+/**
+ * shash_table_get - get key to hash
+ * @ht: hash shash_table_
+ * @key: key of hash info
+ *
+ * Return: NULL or value
+ */
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	shash_node_t *tmp;
+	unsigned long int idx;
+
+		if (!ht || strlen(key) == 0)
+		return (NULL);
+	idx = key_index((unsigned char *)key, ht->size);
+	tmp = ht->shead;
+	while (tmp)
+	{
+		if (strcmp(key, tmp->key) == 0)
+			return (tmp->value);
+		tmp = tmp->snext;
+	}
+	return (NULL);
+
+}
+/**
+ * shash_table_print- print key to hash
+ * @ht: hash shash_table_
+ * @key: key of hash info
+ *
+ * Return: NULL or value
+ */
+void shash_table_print(const shash_table_t *ht)
+{
+	unsigned long int i;
+	shash_node_t *tmp;
+	int flg = 0;
+
+	if (!ht)
+		return;
+	printf("{");
+	i = 0;
+	tmp = ht->shead;
+	while (tmp)
+	{
+		printf("'%s': '%s'", tmp->key, tmp->value);
+		tmp = tmp->snext;
+		if (tmp)
+			printf(", ");
+	}
+	printf("}\n");
 }
