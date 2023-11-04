@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+#include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 /**
@@ -13,42 +14,33 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
+	unsigned long int i;
 	hash_node_t *tmp;
-	char *key_tmp, *value_tmp;
+	char *value_tmp;
 
 	if (strlen(key) == 0 || !ht || value == NULL || *key == '\0')
 		return (0);
-	key_tmp = strdup(key);
 	value_tmp = strdup(value);
-	idx = key_index((unsigned char *)key_tmp, ht->size);
+	idx = key_index((unsigned char *)key, ht->size);
 	tmp = ht->array[idx];
-	if (!tmp)
+	i = idx;
+
+	while (i < ht->size)
 	{
-		tmp = malloc(sizeof(hash_node_t));
-		if (!tmp)
-			return (0);
-		tmp->value = value_tmp;
-		tmp->next = NULL;
-		tmp->key = key_tmp;
-		ht->array[idx] = tmp;
-		return (1);
-	}
-	while (tmp)
-	{
-		if (strcmp(tmp->key, key) == 0)
+		if (strcmp(ht->array[i]->key, key) == 0)
 		{
-			free(tmp->value);
-			tmp->value = value_tmp;
+			free(ht->array[i]->value);
+			ht->array[i]->value = value_tmp;
 			return (1);
 		}
-		tmp = tmp->next;
+		i++;
 	}
 	tmp = malloc(sizeof(hash_node_t));
 	if (!tmp)
 		return (0);
+	tmp->key = strdup(key);
 	tmp->value = value_tmp;
-	tmp->key = key_tmp;
 	tmp->next = ht->array[idx];
-	ht->array[idx]->next = tmp;
+	ht->array[idx] = tmp;
 	return (1);
 }
