@@ -1,7 +1,8 @@
 CC = gcc
-SRC := main.c school.c
-NAME := school
+SRC = main.c school.c
+NAME = school
 OBJ := $(SRCS:%.c=%)
+
 all: main.o school.o
 	${CC} ${OBJ} -o ${NAME}
 
