@@ -16,8 +16,8 @@ re: oclean all
 clean:
 	${RM} *~ ${NAME}
 
-oclean:${OBJ}
-	${RM} $<
+oclean:
+	${RM} ${OBJ}
 
 fclean: clean oclean
 
