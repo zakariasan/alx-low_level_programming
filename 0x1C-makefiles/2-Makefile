@@ -6,6 +6,6 @@ OBJ = $(SRC:%.c=%.o)
 all: ${OBJ} 
 	${CC} ${OBJ} -o ${NAME}
 main.o:
-	${CC} -c $@
+	${CC} -c $<
 school.o:
-	${CC} -c $@
+	${CC} -c $<
