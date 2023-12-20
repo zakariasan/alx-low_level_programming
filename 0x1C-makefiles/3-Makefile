@@ -7,10 +7,8 @@ RM = rm
 all: main.o school.o
 	${CC} ${OBJ} -o ${NAME}
 
-main.o:
-	${CC} -c $@
-school.o:
-	${CC} -c $@
+%.o: %.c
+	${CC} -c -o $@ $<
 
 re: fclean all
 

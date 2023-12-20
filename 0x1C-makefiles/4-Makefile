@@ -8,11 +8,8 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: main.o school.o
 	${CC} ${OBJ} -o ${NAME}
 
-main.o:
-	${CC} ${CFLAGS} $@
-
-school.o:
-	${CC} ${CFLAGS} $@
+%.o: %.c
+	${CC} -c -o $@ $<
 
 re: fclean all
 
