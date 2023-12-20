@@ -6,10 +6,10 @@ RM = rm
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: ${OBJ} 
-	${CC} ${OBJ} -o ${NAME}
+	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
 %.o: %.c
-	${CC} ${CFLAGS} -o $@ $<
+	${CC} -c -o $@ $<
 
 re: oclean all
 
