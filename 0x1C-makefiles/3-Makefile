@@ -4,7 +4,7 @@ NAME = school
 OBJ = $(SRC:%.c=%.o)
 RM = rm -f
 
-all: main.o school.o
+all: ${OBJ}
 	${CC} ${OBJ} -o ${NAME}
 
 %.o: %.c
