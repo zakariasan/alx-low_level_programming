@@ -10,12 +10,12 @@ all: main.o school.o
 %.o: %.c
 	${CC} -c -o $@ $<
 
-re: fclean all
+re: oclean all
 
 clean:
 	${RM} *~ ${NAME}
 
-oclean:${OBJ}
+oclean:
 	${RM} ${OBJ}
 
 fclean: clean oclean
