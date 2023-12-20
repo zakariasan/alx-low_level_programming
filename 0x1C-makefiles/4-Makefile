@@ -1,14 +1,18 @@
 CC = gcc
-SRC := $(wildcard *.c)
-NAME := school
-OBJ := $(SRCS:%.c=%)
-RM := rm
-CFLAGS := -Wall -Werror -Wextra -pedantic
-all: %.o
+SRC = main.c school.c
+NAME = school
+OBJ := $(SRCS:%.c=%.o)
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: main.o school.o
 	${CC} ${OBJ} -o ${NAME}
 
-%.o : %.c
-	${CC} ${CFLAGS} $<
+main.o:
+	${CC} ${CFLAGS} $@
+
+school.o:
+	${CC} ${CFLAGS} $@
 
 re: fclean all
 
