@@ -6,5 +6,5 @@ OBJ = $(SRC:%.c=%.o)
 all: ${OBJ}
 	${CC} ${OBJ} -o ${NAME}
 %.o: %.c
-	${CC} -c ${SRC}
+	${CC} -c -o $@ @<
 
