@@ -5,11 +5,9 @@ OBJ = $(SRC:%.c=%.o)
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-all: ${OBJ} 
-	${CC} ${OBJ} -o ${NAME}
+all: ${OBJ} m.h 
+	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
-%.o: %.c
-	${CC} ${CFLAGS} -c -o $@ $<
 
 re: oclean all
 
