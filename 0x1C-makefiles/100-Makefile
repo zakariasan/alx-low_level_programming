@@ -6,8 +6,9 @@ RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: ${OBJ} m.h 
-	${CC} ${OBJ} -o ${NAME}
+	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
+re: oclean all
 
 clean:
 	${RM} *~ ${NAME}
@@ -16,7 +17,5 @@ oclean:
 	${RM} ${OBJ}
 
 fclean: clean oclean
-
-re: fclean all
 
 .PHONY: clean oclean fclean re all
