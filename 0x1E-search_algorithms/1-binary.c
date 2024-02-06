@@ -3,15 +3,16 @@
 #include <stdio.h>
 
 /**
-* ft_print_arr-func to print nbrs 
+* ft_print_arr-func to print nbrs
 * @array: array.
-* @left: start value. 
-* @right: end value. 
+* @left: start value.
+* @right: end value.
 */
 void ft_print_arr(int *array, int left, int right)
 {
 	int i = left;
-	for (;i <= right; i++)
+
+	for ( ; i <= right; i++)
 	{
 		if (i != right)
 			printf("%d, ", array[i]);
@@ -22,9 +23,9 @@ void ft_print_arr(int *array, int left, int right)
 
 /**
 * binary_search - function that searches for a value in an array Binary search.
-* @array: array.
-* @size: size of array. 
-* @value: searchy value 
+* @array: array
+* @size: size of array.
+* @value: searchy value
 * Return: integer
 */
 
@@ -45,7 +46,7 @@ int binary_search(int *array, size_t size, int value)
 		else if (array[middle] > value)
 			right = middle - 1;
 		else
-			return middle;
+			return (middle);
 	}
 	return (-1);
 }
