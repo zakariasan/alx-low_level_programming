@@ -1,6 +1,6 @@
 #include "search_algos.h"
 #include <math.h>
-#define MIN(a,b) ((a) < (b) ? (a) : (b))
+#include <stddef.h>
 
 /**
 * jump_search - function that searches for a value in an array Jump search.
@@ -13,31 +13,27 @@
 int jump_search(int *array, size_t size, int value)
 {
 	size_t start = 0;
-	size_t end = sqrt(size);
-	size_t cnt = 0;
+	size_t end = 0;
+	size_t step = sqrt(size);
+	size_t i = 0;
 
-	while (array[MIN(start, size) - 1] < value && array &&
-			(int)start < value)
+	while (end < size && array && array[end] < value)
 	{
-		printf("Value checked array[%ld] = [%d]\n", start,
-				array[start]);
+		printf("Value checked array[%ld] = [%d]\n", end,
+				array[end]);
 		start = end;
-		end = end + sqrt(size);
-
-		if (start >= size)
-			break;
+		end = end + step;
 	}
-	
-	end = (end < size) ? end : size;
+
 	printf("Value found between indexes [%ld] and [%ld]\n", start,
-			end - 1);
-	cnt = start;
-	while (cnt < end)
+			end);
+	i = start;
+	while (i <= (end < size ? end : size - 1))
 	{
-		printf("Value checked array[%ld] = [%d]\n", cnt, array[cnt]);
-		if (array[cnt] == value)
-			return (cnt);
-		cnt++;
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
+		i++;
 	}
 	return (-1);
 }
