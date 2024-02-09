@@ -16,6 +16,7 @@ int rec_binary_search(int *array, size_t low, size_t high, int value)
 
 	if (low <= high)
 	{
+
 		mid = low + (high - low) / 2;
 
 		printf("Searching in array: ");
@@ -27,11 +28,9 @@ int rec_binary_search(int *array, size_t low, size_t high, int value)
 			printf("%d", array[i]);
 		}
 		printf("\n");
-
-		if (array[mid] == value)
+		if (array[mid] == value && array[mid - 1] != value)
 			return (mid);
-
-		if (array[mid] > value)
+		if (array[mid] >= value)
 			return (rec_binary_search(array, low, mid - 1, value));
 		else
 			return (rec_binary_search(array, mid + 1, high,
